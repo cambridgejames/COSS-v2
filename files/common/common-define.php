@@ -4,7 +4,7 @@
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'MysqlRoot123Cloud');
+define('DB_PASS', 'MysqlRoot123');
 define('DB_NAME', 'compsys_info');
 
 date_default_timezone_set('PRC');

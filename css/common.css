@@ -5,7 +5,7 @@ body {
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
-	background: url(imgs/login_bgx.gif);
+	background: url(../imgs/login_bgx.gif);
 }
 
 .public-horizontally-container {

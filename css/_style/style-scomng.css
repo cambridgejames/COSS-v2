@@ -20,11 +20,11 @@
 	-o-transform: translate3d(20px, -50%, 0);
 	transform: translate3d(20px, -50%, 0);
 	border: none;
-	background: url(imgs/scomng_buttons_icon.png) 0 0 no-repeat;
+	background: url(../../imgs/scomng_buttons_icon.png) 0 0 no-repeat;
 }
 
 .public-header-return:hover {
-	background: rgba(255, 255, 255, 0.1) url(imgs/scomng_buttons_icon.png) 0 0 no-repeat;
+	background: rgba(255, 255, 255, 0.1) url(../../imgs/scomng_buttons_icon.png) 0 0 no-repeat;
 	cursor: pointer;
 }
 
@@ -52,11 +52,11 @@
 	width: 100%;
 	height: 100%;
 	border: none;
-	background: url(imgs/scomng_buttons_icon.png) -60px 0 no-repeat;
+	background: url(../../imgs/scomng_buttons_icon.png) -60px 0 no-repeat;
 }
 
 .public-header-list:hover {
-	background: rgba(255, 255, 255, 0.1) url(imgs/scomng_buttons_icon.png) -60px 0 no-repeat;
+	background: rgba(255, 255, 255, 0.1) url(../../imgs/scomng_buttons_icon.png) -60px 0 no-repeat;
 }
 
 .dropdown-list{
@@ -198,12 +198,12 @@
 
 .competitor-itemr .itemr-scorePlus {
 	margin-left: 10px;
-	background: url(imgs/scomng_buttons_icon.png) 0 -60px no-repeat;
+	background: url(../../imgs/scomng_buttons_icon.png) 0 -60px no-repeat;
 }
 
 .competitor-itemr .itemr-scoreMinus {
 	margin-left: 0px;
-	background: url(imgs/scomng_buttons_icon.png) -60px -60px no-repeat;
+	background: url(../../imgs/scomng_buttons_icon.png) -60px -60px no-repeat;
 }
 
 .competitor-itemr .itemr-scorePlus:hover, .itemr-scoreMinus:hover {
@@ -211,11 +211,11 @@
 }
 
 .competitor-itemr .itemr-scorePlus:hover {
-	background: url(imgs/scomng_buttons_icon.png) -30px -60px no-repeat;
+	background: url(../../imgs/scomng_buttons_icon.png) -30px -60px no-repeat;
 }
 
 .competitor-itemr .itemr-scoreMinus:hover {
-	background: url(imgs/scomng_buttons_icon.png) -90px -60px no-repeat;
+	background: url(../../imgs/scomng_buttons_icon.png) -90px -60px no-repeat;
 }
 
 .competitor-button {
@@ -237,22 +237,22 @@
 .competitor-button .item-buttonl {
 	float: left;
 	color: #fff;
-	background: url(imgs/site_buttons_bg.png) no-repeat 0 0;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 0;
 }
 
 .competitor-button .item-buttonr {
 	float: right;
 	color: #000;
-	background: url(imgs/site_buttons_bg.png) no-repeat -122px 0;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat -122px 0;
 }
 
 .competitor-button .item-buttonl:hover {
-	background: url(imgs/site_buttons_bg.png) no-repeat 0 -2pc;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 -2pc;
 	cursor: pointer;
 }
 
 .competitor-button .item-buttonr:hover {
-	background: url(imgs/site_buttons_bg.png) no-repeat -122px -2pc;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat -122px -2pc;
 	cursor: pointer;
 }
 

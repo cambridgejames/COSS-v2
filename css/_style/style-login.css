@@ -9,7 +9,7 @@
 	margin: 0 auto;
 	width: 206px;
 	height: 38px;
-	background: url(imgs/logo.png) no-repeat;
+	background: url(../../imgs/logo.png) no-repeat;
 }
 
 .index-panner {
@@ -98,14 +98,14 @@
 	height: 2pc;
 	border: none;
 	opacity: 0.7;
-	background: url(imgs/site_buttons_bg.png) no-repeat 0 0;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 0;
 	color: #fff;
 	font-weight: 700;
 	font-size: 14px;
 }
 
 .index-panner-button .index-panner-butr:hover {
-	background: url(imgs/site_buttons_bg.png) no-repeat 0 -2pc;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 -2pc;
 	cursor: pointer;
 }
 

