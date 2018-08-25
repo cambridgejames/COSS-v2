@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+.public-header {
+	height: 38px;
+	width: 380px;
+}
+
+.public-header .header-logo {
+	margin: 0 auto;
+	width: 206px;
+	height: 38px;
+	background: url(https://www.compscosys.cn/png/imgs/logo) no-repeat;
+}
+
+.index-panner {
+	/*height: 228px;*/
+	width: 310px;
+	position: relative;
+	margin-top: 35px;
+	padding: 28px 35px 28px 35px;
+	background: #f8f8f8;
+	box-shadow: silver 1px 1px 15px 3px;
+}
+
+.index-panner .panner-title {
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -o-center;
+	text-align: center;
+	font-weight:lighter;
+	font-size:15px;
+	font-family:"微软雅黑",SimHei,sans-serif;
+	margin-bottom: 10px;
+}
+
+.panner-button .panner-compsname-choose {
+	margin-top: 10px;
+	padding-bottom: 2px;
+	width: 308px;
+	height: 40px;
+	border: none;
+	opacity: 0.7;
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat 0 -65px;
+	color: #fff;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.panner-button .panner-compsname-choose:hover {
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat 0 -104px;
+}
+
+.panner-logout {
+	margin-top: 20px;
+}
+
+.panner-logout-button {
+	position: relative;
+	left: 50%;
+	padding-bottom: 2px;
+	width: 122px;
+	height: 2pc;
+	-webkit-transform: translate3d(-50%, 0, 0);
+	-moz-transform: translate3d(-50%, 0, 0);
+	-o-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+	border: none;
+	opacity: 0.7;
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat -122px 0;
+	color: #000;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.panner-logout-button:hover {
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat -122px -2pc;
+	cursor: pointer;
+}
+
+.footer-copyright{
+	margin-top: 60px;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -o-center;
+	text-align: center;
+	color: #58595b;
+	font-weight: 400;
+	font-size: 9pt;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}

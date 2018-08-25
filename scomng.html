@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>竞赛打分系统</title>
+	<link href="https://www.compscosys.cn/style/reset" rel="stylesheet" type="text/css">
+	<link href="https://www.compscosys.cn/style/common" rel="stylesheet" type="text/css">
+	<link href="https://www.compscosys.cn/style/style-scomng" rel="stylesheet" type="text/css">
+	<link rel="icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<script src="https://www.compscosys.cn/javascript/base64" charset="utf-8" type="text/javascript"></script>
+	<script src="https://www.compscosys.cn/javascript/cookies" charset="utf-8" type="text/javascript"></script>
+	<script src="https://www.compscosys.cn/javascript/score-manage" charset="utf-8" type="text/javascript"></script>
+</head>
+<body onLoad="compsNameInquirer()">
+	<div class="public-header">
+		<input class="public-header-return" type="button" value="" onClick="returnBack()">
+		<div class="public-header-title public-container" id="public-header-title"></div>
+		<div class="public-header-list">
+			<input class="header-list-dropdown" type="button" value="">
+			<ul class="dropdown-list">
+				<li>第一个条目</li>
+				<li>第二条</li>
+				<li>第三个</li>
+				<li>这是第四条</li>
+				<li>第五条</li>
+				<li>第六个框</li>
+				<li>最后一个</li>
+			</ul>
+		</div>
+	</div>
+	<div class="public-vetically-container">
+		<div class="public-panner public-horizontally-container">
+			<ul class="competitor-info public-horizontally-container">
+				<li><div class="item-title">作品名称：</div><div class="item-info" id="workName">default</div></li>
+				<li><div class="item-title">队长姓名：</div><div class="item-info" id="captainName">default</div></li>
+				<li><div class="item-title">组别：</div><div class="item-info" id="groupName">default</div></li>
+			</ul>
+			<ul class="competitor-score" id="competitorScore">
+				<li class="competitor-score-item">
+					<div class="competitor-score-inputm public-horizontally-container">
+						<div class="competitor-iteml">default(0分)</div>
+						<div class="competitor-itemr">
+							<input class="itemr-scoreInput" type="text" name="score" value="0" onChange="overflowRemove(this, 0, 0)" onKeyUp="positiveIntOnly(this)">
+							<input class="itemr-scorePlus" type="button" name="plus" onClick="scoreChange(this, 0, 0)">
+							<input class="itemr-scoreMinus" type="button" name="minus" onClick="scoreChange(this, 0, 0)">
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="competitor-button public-horizontally-container">
+				<li><input class="item-buttonl" type="button" name="submit" id="submit" value="提&emsp;交" onclick="javascript:competitorInfoSubmit()"></li>
+				<li><input class="item-buttonr" type="button" name="recharge" id="recharge" value="重&emsp;置" onclick="javascript:competitorInfoRecharge()"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="public-footer">
+		<div class="public-footer-title public-container">&copy;&nbsp;Copyright&nbsp;2018&nbsp;彭剑桥</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+/* CSS Document */
+
+.public-header {
+	position: absolute;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	background: rgba(50, 53, 52, 1);
+	z-index: 1;
+}
+
+.public-header-return {
+	float: left;
+	position: relative;
+	top: 50%;
+	width: 60px;
+	height: 100%;
+	-webkit-transform: translate3d(20px, -50%, 0);
+	-moz-transform: translate3d(20px, -50%, 0);
+	-o-transform: translate3d(20px, -50%, 0);
+	transform: translate3d(20px, -50%, 0);
+	border: none;
+	background: url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) 0 0 no-repeat;
+}
+
+.public-header-return:hover {
+	background: rgba(255, 255, 255, 0.1) url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) 0 0 no-repeat;
+	cursor: pointer;
+}
+
+.public-header-title {
+	color: #fff;
+	font-weight: 400;
+	font-size: 18px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.public-header-list {
+	float: right;
+	position: relative;
+	display: inline-block;
+	top: 50%;
+	width: 60px;
+	height: 100%;
+	-webkit-transform: translate3d(-20px, -50%, 0);
+	-moz-transform: translate3d(-20px, -50%, 0);
+	-o-transform: translate3d(-20px, -50%, 0);
+	transform: translate3d(-20px, -50%, 0);
+}
+
+.header-list-dropdown {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) -60px 0 no-repeat;
+}
+
+.public-header-list:hover {
+	background: rgba(255, 255, 255, 0.1) url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) -60px 0 no-repeat;
+}
+
+.dropdown-list{
+	position: absolute;
+	right: 0;
+	top: 100%;
+	padding: 10px 0px;
+	background: rgb(28, 29, 30);
+	z-index: 0;
+	display: none;
+}
+
+.dropdown-list li {
+	min-height: 30px;
+	min-width: 100px;
+	line-height: 30px;
+	padding: 2px 20px 2px 20px;
+	font-weight: 100;
+	font-size: 12px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+	color: #fff;
+	overflow: auto;
+}
+
+.dropdown-list li:hover {
+	color: rgb(10, 144, 254);
+	cursor: pointer;
+}
+
+.public-header-list:hover .dropdown-list {
+	display: block;
+}
+
+.public-panner {
+	position: relative;
+	width: 720px;
+	padding: 28px 35px 28px 35px;
+	background: #f8f8f8;
+	box-shadow: silver 1px 1px 15px 3px;
+}
+
+.competitor-info {
+	display:inline-block; 
+	*display:inline; 
+	*zoom:1;
+}
+
+.competitor-info li {
+	float: left;
+}
+
+.competitor-info li .item-title {
+	float: left;
+	margin-left: 8px;
+	color: #58595b;
+	font-weight: 400;
+	font-size: 16px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.competitor-info li .item-info {
+	float: left;
+	margin-right: 8px;
+	color: #f00;
+	font-weight: 400;
+	font-size: 16px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.competitor-score {
+	position: relative;
+	margin: 40px 0px 0px 0px;
+	max-height: 220px;
+	overflow: auto;
+}
+
+.competitor-score .competitor-score-item {
+	height: 34px;
+	margin: 10px 0px 0px 0px;
+}
+
+.competitor-score .competitor-score-item:hover {
+	background: rgba(4, 131, 212, 0.1);
+}
+
+.competitor-score-inputm {
+	position: relative;
+	height: 34px;
+	width: 550px;
+}
+
+.competitor-iteml {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translate3d(0, -50%, 0);
+	-moz-transform: translate3d(0, -50%, 0);
+	-o-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);
+	float: left;
+	color: #58595b;
+	font-weight: 100;
+	font-size: 14px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.competitor-itemr {
+	float: right;
+}
+
+.competitor-itemr .itemr-scoreInput {
+	height: 30px;
+	width: 150px;
+	outline: 0;
+	border: 1px solid #cad2db;
+	border-radius: 4px;
+	background: #f8f8f8;
+	color: #58595b;
+	font-size: 14px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.competitor-itemr .itemr-scoreInput:focus {
+	border-color:rgba(131,154,210,.75);
+	box-shadow:0 0 5px #839ad2;
+	-webkit-transition:border linear .2s, -webkit-box-shadow linear .2s;
+	-moz-transition:border linear .2s, -moz-box-shadow linear .2s;
+	-o-transition:border linear .2s, -o-box-shadow linear .2s;
+	transition:border linear .2s, box-shadow linear .2s;
+}
+
+.competitor-itemr .itemr-scorePlus, .itemr-scoreMinus {
+	width: 30px;
+	height: 30px;
+	border: none;
+}
+
+.competitor-itemr .itemr-scorePlus {
+	margin-left: 10px;
+	background: url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) 0 -60px no-repeat;
+}
+
+.competitor-itemr .itemr-scoreMinus {
+	margin-left: 0px;
+	background: url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) -60px -60px no-repeat;
+}
+
+.competitor-itemr .itemr-scorePlus:hover, .itemr-scoreMinus:hover {
+	cursor: pointer;
+}
+
+.competitor-itemr .itemr-scorePlus:hover {
+	background: url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) -30px -60px no-repeat;
+}
+
+.competitor-itemr .itemr-scoreMinus:hover {
+	background: url(https://www.compscosys.cn/png/imgs/scomng_buttons_icon) -90px -60px no-repeat;
+}
+
+.competitor-button {
+	height: 30px;
+	width: 300px;
+	margin-top: 40px;
+}
+
+.competitor-button .item-buttonl, .item-buttonr {
+	padding-bottom: 2px;
+	width: 122px;
+	height: 2pc;
+	border: none;
+	opacity: 0.7;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.competitor-button .item-buttonl {
+	float: left;
+	color: #fff;
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat 0 0;
+}
+
+.competitor-button .item-buttonr {
+	float: right;
+	color: #000;
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat -122px 0;
+}
+
+.competitor-button .item-buttonl:hover {
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat 0 -2pc;
+	cursor: pointer;
+}
+
+.competitor-button .item-buttonr:hover {
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat -122px -2pc;
+	cursor: pointer;
+}
+
+.public-footer {
+	position: absolute;
+	top: 100%;
+	height: 40px;
+	width: 100%;
+	-webkit-transform: translate3d(0, -100%, 0);
+	-moz-transform: translate3d(0, -100%, 0);
+	-o-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	background: rgba(2, 110, 254, 1);
+}
+
+.public-footer-title {
+	color: #fff;
+	font-weight: 400;
+	font-size: 9pt;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}

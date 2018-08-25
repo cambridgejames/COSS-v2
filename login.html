@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>竞赛打分系统</title>
+	<link href="https://www.compscosys.cn/style/reset" rel="stylesheet" type="text/css">
+	<link href="https://www.compscosys.cn/style/common" rel="stylesheet" type="text/css">
+	<link href="https://www.compscosys.cn/style/style-login" rel="stylesheet" type="text/css">
+	<link rel="icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<script src="https://www.compscosys.cn/javascript/base64" charset="utf-8" type="text/javascript"></script>
+	<script src="https://www.compscosys.cn/javascript/cookies" charset="utf-8" type="text/javascript"></script>
+	<script src="https://www.compscosys.cn/javascript/login-checkout" charset="utf-8" type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="public-vetically-container">
+		<div class="public-header public-horizontally-container">
+			<div class="header-logo"><a href=""></a></div>
+		</div>
+		<div class="index-panner public-horizontally-container">
+			<!--<form method="get">-->
+				<div class="index-panner-input public-horizontally-container">
+					<div class="panner-username">用户名</div>
+				  <input class="panner-input" type="text" name="username" id="username" onkeyup="flushtip()">
+					<div class="panner-password">密&emsp;码</div>
+				  <input class="panner-input" type="password" name="password" id="password" onkeyup="flushtip()">
+					<div class="panner-tips" id="tips"></div>
+					<a class="panner-forget" href="javascript:viod(0)">忘记密码？</a>
+				</div>
+				<div class="index-panner-button">
+					<div class="index-panner-butl">
+						<input class="button-pointer" type="checkbox" name="checkbox" id="auto-login">
+						<label class="button-pointer" for="auto-login">自动登录</label>
+					</div>
+						<input class="index-panner-butr" type="submit" name="submit" value="登&emsp;录" onclick="postmessage()">
+				</div>
+			<!--</form>-->
+		</div>
+		<div class="public-footer public-horizontally-container">
+			<div class="footer-copyright">&copy;&nbsp;Copyright&nbsp;2018&nbsp;彭剑桥</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+.public-header {
+	height: 38px;
+	width: 380px;
+}
+
+.public-header .header-logo {
+	margin: 0 auto;
+	width: 206px;
+	height: 38px;
+	background: url(https://www.compscosys.cn/png/imgs/logo) no-repeat;
+}
+
+.index-panner {
+	height: 228px;
+	width: 310px;
+	position: relative;
+	margin-top: 35px;
+	padding: 28px 35px 20px 35px;
+	background: #f8f8f8;
+	box-shadow:silver 1px 1px 15px 3px;
+}
+
+.index-panner .index-panner-input {
+	height: 182px;
+	width: 310px;
+	margin-bottom: 15px;
+}
+
+.panner-username, .panner-password {
+	color:#58595b;
+	font-weight:lighter;
+	font-size:15px;
+	font-family:"微软雅黑",SimHei,sans-serif;
+	margin-bottom: 10px;
+}
+
+.index-panner-input .panner-input {
+	width: 308px;
+	height: 40px;
+	margin-bottom: 15px;
+	outline: 0;
+	border: 1px solid #cad2db;
+	border-radius: 4px;
+	background: #f8f8f8;
+	color: #58595b;
+	font-size: 14px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.index-panner-input .panner-input:focus {
+	border-color:rgba(131,154,210,.75);
+	box-shadow:0 0 5px #839ad2;
+	-webkit-transition:border linear .2s, -webkit-box-shadow linear .2s;
+	-moz-transition:border linear .2s, -moz-box-shadow linear .2s;
+	-o-transition:border linear .2s, -o-box-shadow linear .2s;
+	transition:border linear .2s, box-shadow linear .2s;
+}
+
+.panner-tips {
+	float: left;
+	color: #ff0000;
+	font-weight: 400;
+	font-size: 13px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.panner-forget {
+	float: right;
+	color: #58595b;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 13px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.panner-forget:hover {
+	color: #206fd5;
+}
+
+.index-panner-button .index-panner-butl {
+	float: left;
+	margin: 5px 0 0 -3px;
+	color: #58595b;
+	font-weight: 400;
+	font-size: 13px;
+	font-family: "微软雅黑",SimHei,sans-serif
+}
+
+.index-panner-button .index-panner-butr {
+	float: right;
+	padding-bottom: 2px;
+	width: 122px;
+	height: 2pc;
+	border: none;
+	opacity: 0.7;
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat 0 0;
+	color: #fff;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.index-panner-button .index-panner-butr:hover {
+	background: url(https://www.compscosys.cn/png/imgs/site_buttons_bg) no-repeat 0 -2pc;
+	cursor: pointer;
+}
+
+.footer-copyright{
+	margin-top: 60px;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -o-center;
+	text-align: center;
+	color: #58595b;
+	font-weight: 400;
+	font-size: 9pt;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
