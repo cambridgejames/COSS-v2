@@ -22,7 +22,7 @@ function postmessage() {
 					// Set cookies (7 days)
 					SetCookie(Base.encode("password"), Base.encode(password), exp, 7);
 				}
-				window.location.href = 'https://www.compscosys.cn/skiping';
+				window.location.href = 'skiping.html';
 			} else {
 				document.getElementById("tips").innerHTML = xmlhttp.responseText;
 			}

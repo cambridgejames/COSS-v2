@@ -1,7 +1,7 @@
 ﻿function logout() {
 	'use strict';
 	SetCookie(Base.encode("password"), "", 0, 0);
-	window.location.href = 'login';
+	window.location.href = 'login.html';
 }
 
 function compsNameInquirer() {
@@ -42,7 +42,7 @@ function compsNameInquirer() {
 function compslogin(compsname) {
 	'use strict';
 	//httpPost("scomng.html", {compsname: encodeURIComponent(Base.encode(compsname))});
-	window.location.href = 'scomng?compsname=' + encodeURIComponent(Base.encode(compsname));
+	window.location.href = 'scomng.html?compsname=' + encodeURIComponent(Base.encode(compsname));
 }
 
 function httpPost(url, params) {

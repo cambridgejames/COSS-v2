@@ -296,7 +296,7 @@ function getLimitsByInfo(info) {
 }
 
 function returnBack() {
-	window.location.href = "skiping";
+	window.location.href = "skiping.html";
 }
 
 function requestAborted(isback) {
