@@ -50,4 +50,4 @@ http://www.compscosys.cn:8080/tree/compsys.git/master
 **微博：**@强力发明狂
 
 ---
-版权所有 &copy; copyright 2018 | [竞赛在线评分系统](https://www.compscosys.cn/)项目开发团队
+版权所有 &copy; copyright 2018 | 竞赛在线评分系统项目开发团队
