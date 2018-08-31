@@ -12,134 +12,29 @@
 	<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
 	<script src="js/ext/base64.js" charset="utf-8" type="text/javascript"></script>
 	<script src="js/ext/cookies.js" charset="utf-8" type="text/javascript"></script>
-	<style type="text/css">
-		/*body {
-			overflow: auto;
-			height: auto;
-			position: absolute;
-		}*/
-		.public-left-sidebar {
-			width: 250px;
-			height: 300px;
-			position: absolute;
-			left: 0;
-			background: rgb(40, 40, 67);
-		}
-		.public-right-content {
-			overflow: auto;
-			width: 700px;
-			position: absolute;
-			right: 0;
-			background: #ddd;
-		}
-		.line {
-			margin-top: 2px;
-			background: #bbb;
-		}
-	</style>
-	<script type="text/javascript">
-		window.onresize = function() {
-			changeAllElementsSize();
-		}
-
-		function changeAllElementsSize() {
-			var winHeight = 0;
-			var winWidth = 0;
-			if (window.innerHeight) {
-				winHeight = window.innerHeight;
-			}
-			else if ((document.body) && (document.body.clientHeight)) {
-				winHeight = document.body.clientHeight;
-			}
-			if (window.innerWidth) {
-				winWidth = window.innerWidth;
-			}
-			else if ((document.body) && (document.body.clientWidth)) {
-				winWidth = document.body.clientWidth;
-			}
-
-			document.getElementById("public-right-content").style.top = parseInt(document.getElementById("public-admin-header").offsetHeight) + "px";
-			document.getElementById("public-left-sidebar").style.top = parseInt(document.getElementById("public-admin-header").offsetHeight) + "px";
-			document.getElementById("public-right-content").style.height = parseInt(winHeight) - parseInt(document.getElementById("public-admin-header").offsetHeight) + "px";
-			document.getElementById("public-left-sidebar").style.height = parseInt(winHeight) - parseInt(document.getElementById("public-admin-header").offsetHeight) + "px";
-			document.getElementById("public-right-content").style.width = parseInt(winWidth) - parseInt(document.getElementById("public-left-sidebar").offsetWidth) + "px";
-		}
-	</script>
 </head>
-<body onload="javascript:changeAllElementsSize()">
-	<div class="public-admin-header" id="public-admin-header">
-		<div class="header-title">竞赛在线评分系统</div>
-		<div>
-			<ul class="header-function"></ul>
-		</div>
-	</div>
-	<div class="public-left-sidebar" id="public-left-sidebar">
-		<ul class="sidebar-button"></ul>
-		<ul class="sidebar-footer"></ul>
-	</div>
-	<div class="public-right-content" id="public-right-content">
-		<ul>
-			<li class="line">This is the line 1</li>
-			<li class="line">This is the line 2</li>
-			<li class="line">This is the line 3</li>
-			<li class="line">This is the line 4</li>
-			<li class="line">This is the line 5</li>
-			<li class="line">This is the line 6</li>
-			<li class="line">This is the line 7</li>
-			<li class="line">This is the line 8</li>
-			<li class="line">This is the line 9</li>
-			<li class="line">This is the line 10</li>
-			<li class="line">This is the line 11</li>
-			<li class="line">This is the line 12</li>
-			<li class="line">This is the line 13</li>
-			<li class="line">This is the line 14</li>
-			<li class="line">This is the line 15</li>
-			<li class="line">This is the line 16</li>
-			<li class="line">This is the line 17</li>
-			<li class="line">This is the line 18</li>
-			<li class="line">This is the line 19</li>
-			<li class="line">This is the line 20</li>
-			<li class="line">This is the line 21</li>
-			<li class="line">This is the line 22</li>
-			<li class="line">This is the line 23</li>
-			<li class="line">This is the line 24</li>
-			<li class="line">This is the line 25</li>
-			<li class="line">This is the line 26</li>
-			<li class="line">This is the line 27</li>
-			<li class="line">This is the line 28</li>
-			<li class="line">This is the line 29</li>
-			<li class="line">This is the line 30</li>
-			<li class="line">This is the line 31</li>
-			<li class="line">This is the line 32</li>
-			<li class="line">This is the line 33</li>
-			<li class="line">This is the line 34</li>
-			<li class="line">This is the line 35</li>
-			<li class="line">This is the line 36</li>
-			<li class="line">This is the line 37</li>
-			<li class="line">This is the line 38</li>
-			<li class="line">This is the line 39</li>
-			<li class="line">This is the line 40</li>
-			<li class="line">This is the line 41</li>
-			<li class="line">This is the line 42</li>
-			<li class="line">This is the line 43</li>
-			<li class="line">This is the line 44</li>
-			<li class="line">This is the line 45</li>
-			<li class="line">This is the line 46</li>
-			<li class="line">This is the line 47</li>
-			<li class="line">This is the line 48</li>
-			<li class="line">This is the line 49</li>
-			<li class="line">This is the line 50</li>
-			<li class="line">This is the line 51</li>
-			<li class="line">This is the line 52</li>
-			<li class="line">This is the line 53</li>
-			<li class="line">This is the line 54</li>
-			<li class="line">This is the line 55</li>
-			<li class="line">This is the line 56</li>
-			<li class="line">This is the line 57</li>
-			<li class="line">This is the line 58</li>
-			<li class="line">This is the line 59</li>
-			<li class="line">This is the line 60</li>
-		</ul>
-	</div>
+<body>
+	<table class="public-column">
+		<tr class="public-admin-header" id="public-admin-header">
+			<td class="public-toolbar">
+				<div class="content">
+					<img src="https://www.compscosys.cn/png/imgs/icon">
+					<strong>竞赛在线评分系统</strong>
+				</div>
+			</td>
+			<td class="header-function"></td>
+		</tr>
+		<tr class="public-admin-main" id="pubilc-admin-main">
+			<td class="public-toolbar">
+				<ul class="main-toolbar" id="main-toolbar">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</td>
+			<td id="public-content"></td>
+		</tr>
+	</table>
 </body>
 </html>
