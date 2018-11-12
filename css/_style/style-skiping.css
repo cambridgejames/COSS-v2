@@ -76,15 +76,3 @@
 	background: url(../../imgs/site_buttons_bg.png) no-repeat -122px -2pc;
 	cursor: pointer;
 }
-
-.footer-copyright{
-	margin-top: 60px;
-	text-align: -webkit-center;
-	text-align: -moz-center;
-	text-align: -o-center;
-	text-align: center;
-	color: #58595b;
-	font-weight: 400;
-	font-size: 9pt;
-	font-family: "微软雅黑",SimHei,sans-serif;
-}

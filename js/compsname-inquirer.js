@@ -35,7 +35,7 @@ function compsNameInquirer() {
 		}
 	};
 
-	xmlhttp.open("GET", "files/bin/compsname-inquirer.php", true);
+	xmlhttp.open("GET", "PHP/bin/compsname-inquirer.php", true);
 	xmlhttp.send();
 }
 

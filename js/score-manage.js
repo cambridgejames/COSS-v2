@@ -29,7 +29,7 @@ function compsNameInquirer() {
 		if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); }
 		else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
 
-		xmlhttp.open("POST", "files/bin/comps-info-query.php", true);
+		xmlhttp.open("POST", "PHP/bin/comps-info-query.php", true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("compsname=" + compsname);
 
@@ -155,7 +155,7 @@ function competitorInfoSubmit() {
 	if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); }
 	else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
 
-	xmlhttp.open("POST", "files/bin/competitor-info-submit.php", true);
+	xmlhttp.open("POST", "PHP/bin/competitor-info-submit.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send("compsname=" + encodeURIComponent(compsname) + "&playername=" + encodeURIComponent(competitor[0]) + "&playergroup=" + encodeURIComponent(competitor[2]) + "&workname=" + encodeURIComponent(competitor[1]) + "&judgename=" + encodeURIComponent(Base.decode(GetCookieByName(Base.encode("username")))) + "&scoredetailed=" + encodeURIComponent(scoredetailed.slice(3)) + "&scoresum=" + encodeURIComponent(scoreSum) + "&current=" + encodeURIComponent(current));
 
