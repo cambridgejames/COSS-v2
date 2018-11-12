@@ -9,7 +9,7 @@
 }
 
 .public-toolbar {
-	width: 250px;
+	width: 200px;
 	background: #00214f;
 	color: #fff;
 }
@@ -80,12 +80,17 @@
 .public-toolbar .container {
 	width: 100%;
 	height: 100%;
-	
+	position: absolute;
 }
 
-.public-toolbar .container label {
+.public-toolbar .container input {
+	folat: right;
+}
+
+.public-toolbar .container div {
 	height: 50px;
 	width: 200px;
+	display: block;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 50px;
@@ -93,6 +98,11 @@
 	font-family: "微软雅黑",SimHei,sans-serif;
 }
 
-.public-toolbar .container label:hover {
+.public-toolbar .container div:hover {
 	background: #004fa3;
+}
+
+.public-content {
+	width: 100%;
+	height: 100%;
 }

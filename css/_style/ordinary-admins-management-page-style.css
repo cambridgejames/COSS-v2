@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+.ordinary-header {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.ordinary-header .compsname {
+	font-size: 35px;
+	font-weight: 400;
+	color: #24B1F8;
+	margin-top: 20px;
+}
+
+.ordinary-header .header-line-continer {
+	width: 1100px;
+	height: 3px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.ordinary-header .header-line-continer .header-line {
+	width: 100%;
+	height: 3px;
+	background: #24B1F8;
+}
+
+.ordinary-body {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.time, .score {
+	width: 1060px;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 20px 20px;
+	background: #f8f8f8;
+	box-shadow:silver 1px 1px 15px 3px;
+	position: relative;
+}
+
+.ordinary-body .ordinary-body-timer {
+	margin-bottom: 20px;
+	background: #E61616;
+	position: relative;
+}
+
+.button {
+	padding-bottom: 2px;
+	width: 122px;
+	height: 2pc;
+	border: none;
+	opacity: 0.7;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 0;
+	color: #fff;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.button:hover {
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 -2pc;
+	cursor: pointer;
+}
+
+.score .score-buttons {
+	width: 100%;
+	position: relative;
+}
+
+.score .score-buttons ul {
+	width: 100%;
+	height: 30px;
+	left: 0px;
+}
+
+.score .score-buttons ul li {
+	float: left;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	overflow: hidden;
+	font-weight: 400;
+	font-size: 16px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+.score .score-buttons ul li:hover {
+	background: #f8f8f8;
+}
+
+.flush {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 1;
+	padding-bottom: 2px;
+	width: 122px;
+	height: 2pc;
+	border: none;
+	opacity: 0.7;
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 0;
+	color: #fff;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.flush:hover {
+	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 -2pc;
+	cursor: pointer;
+}
+
+.score .value {
+	width: 100%;
+	min-height: 100px;
+	position: relative;
+}
+
+.score .no-data {
+	width:100%;
+	min-height: 2pc;
+	text-align: left;
+	font-size: 16px;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
+
+#score-value {
+	table-layout: fixed;
+	border: none;
+	width: 100%;
+}
+
+#score-value th, #score-value tr {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#score-value td {
+	border-top: 0;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-left: 0;
+}
+
+#score-value tr.lastrow td { border-bottom: 0 }
+#score-value tr td.lastCol { border-right: 0 }

@@ -43,3 +43,19 @@ body {
 .button-pointer {
 	cursor: pointer;
 }
+
+.public-footer {
+	margin-top: 45px;
+}
+
+.footer-copyright{
+	margin-top: 5px;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -o-center;
+	text-align: center;
+	color: #58595b;
+	font-weight: 400;
+	font-size: 9pt;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}
