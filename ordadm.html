@@ -14,7 +14,7 @@
 	<script src="js/ext/cookies.js" charset="utf-8" type="text/javascript"></script>
 	<script src="js/ordinary-admins-Ajax.js" charset="utf-8" type="text/javascript"></script>
 </head>
-<body onload="showWellcomPage()">
+<body onload="showWellcomPage()" onselectstart="return false">
 	<table class="public-column">
 		<tr class="public-admin-header" id="public-admin-header">
 			<td class="public-toolbar">
@@ -34,11 +34,9 @@
 		</tr>
 		<tr class="public-admin-main" id="pubilc-admin-main">
 			<td class="public-toolbar">
-				<div class="container" id="home-container">
-					<div onclick="getPageByCompsname(this.innerHTML)">第六届班徽班旗设计大赛</div>
-				</div>
+				<div class="container" id="home-container"></div>
 			</td>
-			<td class="public-content" id="public-content"></td>
+			<td><div class="public-content" id="public-content"></div></td>
 		</tr>
 	</table>
 </body>

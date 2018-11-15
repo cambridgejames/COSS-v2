@@ -19,9 +19,12 @@ checkIsLegal(mysqli_num_rows($result) > 0, $dbc, 3);
 
 mysqli_data_seek($result, 0);
 $row = mysqli_fetch_array($result);
-$competitor_info = getGroupNameFromeCompetitorInfo($row[0]);
-array_push($competitor_info, "总计");
+$groupName = competitorInfoToArray($row[0]);//getGroupNameFromeCompetitorInfo($row[0]);
 $score_rubric = $row[1];
+
+
+
+//array_push($competitor_info, "总计");
 
 ?>
 
@@ -41,38 +44,57 @@ $score_rubric = $row[1];
 		</div>
 	</div>
 	<div id="score" class="score">
-		<input class="flush" type="button" name="itemFlush" value="刷新" />
+		<input class="flush" type="button" name="itemFlush" value="刷&emsp;新" />
 		<div class="no-data" id="no-data">暂无数据</div>
-		<div style="width: 100%; border: 2px solid #BACDEE; z-index: 0; margin-top: 20px">
+		<div id="score-container" style="width: 100%; border: 2px solid #BACDEE; z-index: 0; margin-top: 20px">
 			<div class="score-buttons" style="background: #BACDEE">
 				<ul id="groups">
 					<?php
 
-					foreach($competitor_info as $score_buttons) {
+					/*foreach($competitor_info as $score_buttons) {
 						echo "<li onclick=\"clickGroups(this.id)\">$score_buttons</li>";
-					}
+					}*/
 
 					?>
 				</ul>
 			</div>
-			<div class="value">
-				<table id="score-value">
+			<!-- <div class="value">
+				<table class="dynamic-page-score-value">
 					<th>
-						<td style="width: 40px;">编号</td>
+						<td style="width: 40px;">编号1</td>
 						<td style="width: 200px;">选手姓名</td>
 						<td style="width: 250px;">作品名称</td>
-						<div id="score-value-default"></div>
 						<td style="width: 200px;">总分</td>
 					</th>
-
-<?php
-
-// TODO: 
-
-?>
-
 				</table>
 			</div>
+			<div class="value">
+				<table class="dynamic-page-score-value">
+					<th>
+						<td style="width: 40px;">编号2</td>
+						<td style="width: 200px;">选手姓名</td>
+						<td style="width: 250px;">作品名称</td>
+						<td style="width: 250px;">作品名称</td>
+						<td style="width: 200px;">总分</td>
+					</th>
+				</table>
+			</div>
+			<div class="value">
+				<table class="dynamic-page-score-value">
+					<th>
+						<td style="width: 40px;">编号3</td>
+						<td style="width: 200px;">选手姓名</td>
+						<td style="width: 200px;">选手姓名</td>
+						<td style="width: 250px;">作品名称</td>
+						<td style="width: 200px;">总分</td>
+					</th>
+				</table>
+			</div> -->
+<?php
+
+print_r($groupName);
+
+?>
 		</div>
 	</div>
 </div>

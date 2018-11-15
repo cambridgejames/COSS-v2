@@ -38,6 +38,7 @@ function getPageByCompsname(compsname) {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304) && xmlhttp.responseText != "failed") {
 			document.getElementById("public-content").innerHTML = xmlhttp.responseText;
 			setIdforItems();
+			document.getElementById("1").click();
 		}
 		else {
 			if (xmlhttp.readyState !== 4 && (xmlhttp.status !== 200 && xmlhttp.status !== 304) || xmlhttp.responseText == "failed") {
@@ -49,19 +50,18 @@ function getPageByCompsname(compsname) {
 
 function setIdforItems() {
 	var groups = document.getElementById("groups").children;
-	for (var i = 0; i < groups.length; i++) {
-		groups[i].id = "groups-" + i;
-	}
+	for (var i = 0; i < groups.length; i++) { groups[i].id = i + 1; }
 }
 
 function clickGroups(elementId) {
-	var item = document.getElementById(elementId);
-
 	var groups = document.getElementById("groups").children;
-	for (var i = 0; i < groups.length; i++) {
-		groups[i].style.background = "#B6CFEC";
-	}
-	item.style.background = "#FFF";
+	var container =  document.getElementById("score-container").children;
 
-	document.getElementById("score-value-default").innerHTML = "";
+	for (var i = 0; i < groups.length; i++) {	// 清空样式
+		groups[i].style.background = "#B6CFEC";
+		container[i + 1].style.display = "none";
+	}
+
+	groups[parseInt(elementId) - 1].style.background = "#FFF";
+	container[parseInt(elementId)].style.display = "block";
 }
