@@ -16,14 +16,11 @@ $result = mysqli_query($dbc, $query);
 checkIsLegal(mysqli_num_rows($result) > 0, $dbc, 2);
 mysqli_data_seek($result, 0);
 $row = mysqli_fetch_array($result);
-$compsysScoreInfo = getCompsysScoreInfoByCompsysInfo($row[0], $row[1]);
+$tableTitle = getCompsysScoreInfoByCompsysInfo($row[0], $row[1]);
 
-$query = "SELECT player_name, player_group, work_name, score_detailed, score_sum FROM competitor_score WHERE  comps_name = '$compsname'";
-$result = mysqli_query($dbc, $query);
-checkIsLegal(mysqli_num_rows($result) > 0, $dbc, 3);
-$compsysScoreInfo = Array();
-while($row = mysqli_fetch_assoc($result)) { array_push($compsysScoreInfo, array_values($row)); }
-// TODO: 更改compsysScoreInfo变量名为见名知意变量名，并增加数据处理和分数查询子函数。
+$compsysScoreInfo = getSerializedScore($compsname, $dbc);
+
+// TODO：增加分数查询和信息填充子函数，并使网页能够完整正常地显示全部表格
 
 
 /*for($i = 0; $i < count($compsysScoreInfo[0]); $i++) {
@@ -66,9 +63,9 @@ function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 	// 注：
 	// 只需判断参赛人员的组数和作品名称的组数是否相同即可判断是否有“总分”组。
 
-	/// 闭包函数：
-	function EVEN($var) { return !($var & 1); }	// 取数组中第0,2,4……号元素
-	function ODD($var) { return ($var & 1); }	// 取数组中第1,3,5……号元素
+	/// 嵌套函数：
+	if (!function_exists('EVEN')) { function EVEN($var) { return !($var & 1); }}	// 取数组中第0,2,4……号元素 
+	if (!function_exists('ODD')) { function ODD($var) { return ($var & 1); }}		// 取数组中第1,3,5……号元素 
 
 	/// 函数实现：
 	$groupInfo = preg_split("/(@g@)/", $scoreRubric);
@@ -102,6 +99,42 @@ function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 	}
 
 	return Array($group, $info, $playerName, $workName);
+}
+
+function getSerializedScore($compsName, $DBC) {
+	// 选手成绩查询子函数
+
+	/// 函数功能：
+	// 在指定的数据库中查询指定名称的比赛中所有参赛人员的成绩信息
+	// 返回的数组的每一行代表一个参赛人员（或队伍），共有5列，具体结构如下：
+	// 第0列：参赛人姓名或参赛队名称；
+	// 第1列：参赛人或参赛队所在组的名称；
+	// 第2列：参赛队或参赛人员的作品名称；
+	// 第3列：数组，共两行，分别为该评分的评分细则和对应的详细得分；
+	// 第4列：总分。
+
+	// 注：
+	// 本函数一定有返回值，若查询结果为空则返回一个空数组。
+
+	/// 嵌套函数：
+	if (!function_exists('EVEN')) { function EVEN($var) { return !($var & 1); }}	// 取数组中第0,2,4……号元素 
+	if (!function_exists('ODD')) { function ODD($var) { return ($var & 1); }}		// 取数组中第1,3,5……号元素 
+
+	/// 函数实现：
+	$result = mysqli_query($DBC, "SELECT player_name, player_group, work_name, score_detailed, score_sum FROM competitor_score WHERE comps_name = '$compsName'");	// 查询数据
+	$rawScoreInfomation = Array();
+	while($row = mysqli_fetch_assoc($result)) { array_push($rawScoreInfomation, array_values($row)); }	// 将数据转换成数组
+
+	foreach ($rawScoreInfomation as &$rawScoreInfomation_item) {
+		// 解析位于数组每行第三列的详细得分字段，生成数组
+		$score_detailed = preg_split("/(@c@)|@r@/", $rawScoreInfomation_item[3]);
+		$rawScoreInfomation_item[3] = Array(array_values(array_filter($score_detailed, "EVEN", ARRAY_FILTER_USE_KEY)),
+			array_values(array_filter($score_detailed, "ODD", ARRAY_FILTER_USE_KEY)));
+
+	}
+	unset($rawScoreInfomation_item);
+
+	return $rawScoreInfomation;
 }
 
 ?>
