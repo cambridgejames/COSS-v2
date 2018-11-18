@@ -11,44 +11,92 @@ $compsname = "第六届班徽班旗设计大赛";
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-$query = "SELECT competitor_info, score_rubric FROM comps_info WHERE comps_name = '$compsname'";
-$result = mysqli_query($dbc, $query);
-checkIsLegal(mysqli_num_rows($result) > 0, $dbc, 2);
-mysqli_data_seek($result, 0);
-$row = mysqli_fetch_array($result);
-$tableTitle = getCompsysScoreInfoByCompsysInfo($row[0], $row[1]);
-
+$tableTitle = getCompsysScoreInfo($compsname, $dbc);
 $compsysScoreInfo = getSerializedScore($compsname, $dbc);
 
-// TODO：增加分数查询和信息填充子函数，并使网页能够完整正常地显示全部表格
+// print_r($tableTitle);
+// print_r($compsysScoreInfo);
+// print_r(getScoresByNamAndGroup($compsysScoreInfo, "1701班", "班徽组"));
+// echo displayFinalInformation($tableTitle, $compsysScoreInfo);
+// print_r(finalInformatoinToArray($tableTitle, $compsysScoreInfo));
+
+// TODO：	改造 displayFinalInformation($title, $score) 方法，使其通过矩阵组读取数据
+//			函数原型改为 displayFinalInformation($title, $information).
+
+// TODO：	改造 getSerializedScore($compsName, $DBC) 方法，使其合并所有相同组相同参赛队（或个人）的分数（求平均数）
+//			函数原型不变。
+
+// TODO：	增加导出Excel表的功能时，可以考虑重写 getSerializedScore() 和 getScoresByNamAndGroup()
 
 
-/*for($i = 0; $i < count($compsysScoreInfo[0]); $i++) {
-	echo $compsysScoreInfo[0][$i];
-	echo "<table border = \"1px\">";
 
-	echo "<tr>";
-	for($j = 0; $j < count($compsysScoreInfo[1][$i]); $j++) {
-		echo "<th>";
-		echo $compsysScoreInfo[1][$i][$j];
-		echo "</th>";
+function displayFinalInformation($title, $score) {
+	// 竞赛成绩信息统一建表输出子函数
+
+	// TODO: 改造函数改成从矩阵中读数据
+
+	$finalInformation = "";
+
+	// 判断是否存在“总分”分组
+	$isTotal = count($title[2]) != count($title[3]);	// 不相等则说明存在“总分”组
+	$groupNumber = $isTotal ? count($title[0]) - 1 : count($title[0]);	// 计算组的数量（不包括“总分”组）
+
+	for ($groupIndex = 0; $groupIndex < $groupNumber; $groupIndex++) {	// 分别写入各组的表格
+		$finalInformation .= "<table border = \"1px\"><tr>";	// 解析表格标题栏
+		for ($col = 0; $col < count($title[1][$groupIndex]); $col++) {
+			$finalInformation .= "<th>".$title[1][$groupIndex][$col]."</th>";
+		}
+		$finalInformation .= "</tr>";
+		for ($row = 0; $row < count($title[2][$groupIndex]); $row++) {	// 向表格中按行写入参赛者信息
+			$finalInformation .= "<tr><td>".$row."</td><td>".$title[2][$groupIndex][$row]."</td><td>".$title[3][$groupIndex][$row]."</td>";	// 编号、参赛队（或个人）名称和作品名称
+			// 查询当前正在写入的参赛队（或个人）的详细得分和总分
+			$detailedScore = getScoresByNamAndGroup($score, $title[2][$groupIndex][$row], $title[0][$groupIndex]);
+			if (count($detailedScore) > 0) {	// 判断该选手是否已被评分
+				// 填充选手得分
+				for ($col = 0; $col < count($detailedScore[1]); $col++) {
+					$finalInformation .= "<td>".$detailedScore[1][$col]."</td>";
+				}
+				$finalInformation .= "<td>".$detailedScore[2]."</td>";
+			}
+			else {
+				// 填充0
+				for ($col = 0; $col < count($title[1][$groupIndex]) - 3; $col++) {
+					$finalInformation .= "<td>0</td>";
+				}
+			}
+			$finalInformation .= "</tr>";
+		}
+		$finalInformation .= "</table>";
 	}
-	echo "</tr>";
 
-	for($j = 0; $j < count($compsysScoreInfo[2][$i]); $j++) {
-		echo "<tr><td>";
-		echo $compsysScoreInfo[2][$i][$j];
-		echo "</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>";
+	if ($isTotal) {
+		// 在此处显示“总分”组的表格
+		$summaryTitle = end($title[1]);	// 获取标题
+
+		$finalInformation .= "<table border = \"1px\"><tr>";	// 解析表格标题栏
+		for ($col = 0; $col < count($summaryTitle); $col++) {
+			$finalInformation .= "<th>".$summaryTitle[$col]."</th>";
+		}
+		$finalInformation .= "</tr>";
+		$finalInformation .= "</table>";
 	}
 
-	echo "</table>";
-}*/
-
-print_r($compsysScoreInfo);
-
-function fillCompetitorsInformation($compsysInfo) {
-	// 选手信息填充子函数
+	return $finalInformation;
 }
+
+mysqli_close($dbc);
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 	// 竞赛信息提取子函数
@@ -64,8 +112,8 @@ function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 	// 只需判断参赛人员的组数和作品名称的组数是否相同即可判断是否有“总分”组。
 
 	/// 嵌套函数：
-	if (!function_exists('EVEN')) { function EVEN($var) { return !($var & 1); }}	// 取数组中第0,2,4……号元素 
-	if (!function_exists('ODD')) { function ODD($var) { return ($var & 1); }}		// 取数组中第1,3,5……号元素 
+	if (!function_exists('EVEN')) { function EVEN($var) { return !($var & 1); }}	// 取数组中第0,2,4……号元素
+	if (!function_exists('ODD')) { function ODD($var) { return ($var & 1); }}		// 取数组中第1,3,5……号元素
 
 	/// 函数实现：
 	$groupInfo = preg_split("/(@g@)/", $scoreRubric);
@@ -101,6 +149,31 @@ function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 	return Array($group, $info, $playerName, $workName);
 }
 
+function getCompsysScoreInfo($compsName, $DBC) {
+	// 竞赛信息提取子函数
+
+	/// 函数功能：
+	// 通过封装函数在指定的数据库中查询指定名称的比赛中用于最终分数表格显示的数据，返回值共有四列：
+	// 第0列：分组名称，用于选项卡的显示。若各组参赛人员相同，则添加“总分”组。
+	// 第1列：各组的评分细则，用于表头的显示。
+	// 第2列：各组的参赛人员，用于表格参赛队名称的显示。
+	// 第3列：各组（不包含“总分”组）各参赛人员的作品名称。
+
+	// 注：
+	// 只需判断参赛人员的组数和作品名称的组数是否相同即可判断是否有“总分”组。
+
+	/// 函数实现：
+	$query = "SELECT competitor_info, score_rubric FROM comps_info WHERE comps_name = '$compsName'";
+	$result = mysqli_query($DBC, $query);
+
+	checkIsLegal(mysqli_num_rows($result) > 0, $DBC, "getCompsysScoreInfo()");
+
+	mysqli_data_seek($result, 0);
+	$row = mysqli_fetch_array($result);
+	$rawTitleInformation = getCompsysScoreInfoByCompsysInfo($row[0], $row[1]);
+	return $rawTitleInformation;
+}
+
 function getSerializedScore($compsName, $DBC) {
 	// 选手成绩查询子函数
 
@@ -117,8 +190,8 @@ function getSerializedScore($compsName, $DBC) {
 	// 本函数一定有返回值，若查询结果为空则返回一个空数组。
 
 	/// 嵌套函数：
-	if (!function_exists('EVEN')) { function EVEN($var) { return !($var & 1); }}	// 取数组中第0,2,4……号元素 
-	if (!function_exists('ODD')) { function ODD($var) { return ($var & 1); }}		// 取数组中第1,3,5……号元素 
+	if (!function_exists('EVEN')) { function EVEN($var) { return !($var & 1); }}	// 取数组中第0,2,4……号元素
+	if (!function_exists('ODD')) { function ODD($var) { return ($var & 1); }}		// 取数组中第1,3,5……号元素
 
 	/// 函数实现：
 	$result = mysqli_query($DBC, "SELECT player_name, player_group, work_name, score_detailed, score_sum FROM competitor_score WHERE comps_name = '$compsName'");	// 查询数据
@@ -135,6 +208,69 @@ function getSerializedScore($compsName, $DBC) {
 	unset($rawScoreInfomation_item);
 
 	return $rawScoreInfomation;
+}
+
+function getScoresByNamAndGroup($rawScoreInfomation, $name, $group) {
+	// 分数查询子函数
+
+	/// 函数功能：
+	// 在所有参赛队（或个人）信息集合中查询制定分组的指定参赛队（或个人）并返回
+	// 返回值为全部信息的一个元素，共有3列，具体结构如下：
+	// 第0列：该评分的评分细则；
+	// 第1列：对应的详细得分；
+	// 第2列：总分。
+
+	// 注：
+	// 本函数一定有返回值，若查询结果为空则返回一个空数组。
+
+	/// 函数实现：
+	$scoreInformation = Array();
+	foreach ($rawScoreInfomation as $rawScoreInfomation_item) {
+		if ($rawScoreInfomation_item[0] == $name && $rawScoreInfomation_item[1] == $group) {
+			array_push($scoreInformation, $rawScoreInfomation_item[3][0],
+				$rawScoreInfomation_item[3][1], $rawScoreInfomation_item[4]);
+			break;
+		}
+	}
+	return $scoreInformation;
+}
+
+function finalInformatoinToArray($title, $score) {
+	// 竞赛成绩信息统一处理子函数
+
+	/// 函数功能：
+	// 将表格信息和选手成绩信息转换成矩阵形式，方便取数据和计算总分
+	// 返回值为一个数组，其中：
+	// 数组的每个元素都是一个矩阵；
+	// 每个矩阵为一个组（不包含“总分”组）的信息；
+	// 每个矩阵的每行为一个选手的信息；
+
+	/// 函数实现：
+	$finalArray = Array();
+
+	// 判断是否存在“总分”分组
+	$isTotal = count($title[2]) != count($title[3]);	// 不相等则说明存在“总分”组
+	$groupNumber = $isTotal ? count($title[0]) - 1 : count($title[0]);	// 计算组的数量（不包括“总分”组）
+
+	for ($groupIndex = 0; $groupIndex < $groupNumber; $groupIndex++) {	// 分别写入各组的表格
+		$groupCache = Array();	// 即将写入一行的信息
+		for ($row = 0; $row < count($title[2][$groupIndex]); $row++) {	// 向表格中按行写入参赛者信息
+			$rowCache = Array();
+			array_push($rowCache, $title[2][$groupIndex][$row], $title[3][$groupIndex][$row]);	// 编号、参赛队（或个人）名称和作品名称
+			// 查询当前正在写入的参赛队（或个人）的详细得分和总分
+			$detailedScore = getScoresByNamAndGroup($score, $title[2][$groupIndex][$row], $title[0][$groupIndex]);
+			if (count($detailedScore) > 0) {	// 判断该选手是否已被评分
+				$rowCache = array_merge($rowCache, $detailedScore[1], Array($detailedScore[2]));	// 填充选手得分
+			}
+			else {
+				for ($col = 0; $col < count($title[1][$groupIndex]) - 3; $col++) { array_push($rowCache, "0"); }	// 填充0
+			}
+			array_push($groupCache, $rowCache);	// 向矩阵中添加一整行
+		}
+		array_push($finalArray, $groupCache);	// 向数组中写入一个矩阵
+	}
+
+	return $finalArray;
 }
 
 ?>
