@@ -23,6 +23,14 @@ function postmessage() {
 					SetCookie(Base.encode("password"), Base.encode(password), exp, 7);
 				}
 				window.location.href = 'skiping.html';
+			} else if (xmlhttp.responseText === "administrator") {
+				var exp = new Date();
+				SetCookie(Base.encode("username"), Base.encode(username), exp, 7);
+				if (document.getElementById("auto-login").checked) {
+					// Set cookies (7 days)
+					SetCookie(Base.encode("password"), Base.encode(password), exp, 7);
+				}
+				window.location.href = 'ordadm.html';
 			} else {
 				document.getElementById("tips").innerHTML = xmlhttp.responseText;
 			}

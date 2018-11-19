@@ -126,23 +126,12 @@
 }
 
 .dynamic-page-score-value {
-	table-layout: fixed;
-	border: none;
 	width: 100%;
 }
 
-.dynamic-page-score-value th, .dynamic-page-score-value tr {
-	display: block;
-	width: 100%;
+.dynamic-page-score-value th, .dynamic-page-score-value td {
+	border: 1px solid #999;
+	height: 2em;
+	vertical-align: middle;
 	text-align: center;
 }
-
-.dynamic-page-score-value td {
-	border-top: 0;
-	border-right: 1px solid #999;
-	border-bottom: 1px solid #999;
-	border-left: 0;
-}
-
-.dynamic-page-score-value tr.lastrow td { border-bottom: 0 }
-.dynamic-page-score-value tr td.lastCol { border-right: 0 }

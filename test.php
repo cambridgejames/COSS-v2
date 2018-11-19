@@ -11,92 +11,25 @@ $compsname = "第六届班徽班旗设计大赛";
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
+$judgeNumber = count(getJudges($compsname, $dbc));
 $tableTitle = getCompsysScoreInfo($compsname, $dbc);
 $compsysScoreInfo = getSerializedScore($compsname, $dbc);
 
-// print_r($tableTitle);
-// print_r($compsysScoreInfo);
-// print_r(getScoresByNamAndGroup($compsysScoreInfo, "1701班", "班徽组"));
-// echo displayFinalInformation($tableTitle, $compsysScoreInfo);
-// print_r(finalInformatoinToArray($tableTitle, $compsysScoreInfo));
-
-// TODO：	改造 displayFinalInformation($title, $score) 方法，使其通过矩阵组读取数据
-//			函数原型改为 displayFinalInformation($title, $information).
-
-// TODO：	改造 getSerializedScore($compsName, $DBC) 方法，使其合并所有相同组相同参赛队（或个人）的分数（求平均数）
-//			函数原型不变。
-
-// TODO：	增加导出Excel表的功能时，可以考虑重写 getSerializedScore() 和 getScoresByNamAndGroup()
-
-
-
-function displayFinalInformation($title, $score) {
-	// 竞赛成绩信息统一建表输出子函数
-
-	// TODO: 改造函数改成从矩阵中读数据
-
-	$finalInformation = "";
-
-	// 判断是否存在“总分”分组
-	$isTotal = count($title[2]) != count($title[3]);	// 不相等则说明存在“总分”组
-	$groupNumber = $isTotal ? count($title[0]) - 1 : count($title[0]);	// 计算组的数量（不包括“总分”组）
-
-	for ($groupIndex = 0; $groupIndex < $groupNumber; $groupIndex++) {	// 分别写入各组的表格
-		$finalInformation .= "<table border = \"1px\"><tr>";	// 解析表格标题栏
-		for ($col = 0; $col < count($title[1][$groupIndex]); $col++) {
-			$finalInformation .= "<th>".$title[1][$groupIndex][$col]."</th>";
-		}
-		$finalInformation .= "</tr>";
-		for ($row = 0; $row < count($title[2][$groupIndex]); $row++) {	// 向表格中按行写入参赛者信息
-			$finalInformation .= "<tr><td>".$row."</td><td>".$title[2][$groupIndex][$row]."</td><td>".$title[3][$groupIndex][$row]."</td>";	// 编号、参赛队（或个人）名称和作品名称
-			// 查询当前正在写入的参赛队（或个人）的详细得分和总分
-			$detailedScore = getScoresByNamAndGroup($score, $title[2][$groupIndex][$row], $title[0][$groupIndex]);
-			if (count($detailedScore) > 0) {	// 判断该选手是否已被评分
-				// 填充选手得分
-				for ($col = 0; $col < count($detailedScore[1]); $col++) {
-					$finalInformation .= "<td>".$detailedScore[1][$col]."</td>";
-				}
-				$finalInformation .= "<td>".$detailedScore[2]."</td>";
-			}
-			else {
-				// 填充0
-				for ($col = 0; $col < count($title[1][$groupIndex]) - 3; $col++) {
-					$finalInformation .= "<td>0</td>";
-				}
-			}
-			$finalInformation .= "</tr>";
-		}
-		$finalInformation .= "</table>";
-	}
-
-	if ($isTotal) {
-		// 在此处显示“总分”组的表格
-		$summaryTitle = end($title[1]);	// 获取标题
-
-		$finalInformation .= "<table border = \"1px\"><tr>";	// 解析表格标题栏
-		for ($col = 0; $col < count($summaryTitle); $col++) {
-			$finalInformation .= "<th>".$summaryTitle[$col]."</th>";
-		}
-		$finalInformation .= "</tr>";
-		$finalInformation .= "</table>";
-	}
-
-	return $finalInformation;
-}
-
 mysqli_close($dbc);
 
+$finalInfoArray = finalInformatoinToArray($tableTitle, $compsysScoreInfo, $judgeNumber);
+displayFinalInformation($tableTitle, $finalInfoArray, $judgeNumber);
 
+function getJudges($compsName, $DBC) {
+	// 评委姓名查询子函数
 
+	/// 函数实现：
+	$result = mysqli_query($DBC, "SELECT users_nickname FROM users_info WHERE comps_name = '$compsName' AND users_authority = 4");
 
-
-
-
-
-
-
-
-
+	$judges = Array();
+	while($row = mysqli_fetch_assoc($result)) { array_push($judges, array_values($row)[0]); }	// 将数据转换成数组
+	return $judges;
+}
 
 function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 	// 竞赛信息提取子函数
@@ -125,7 +58,7 @@ function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 		// 取出评分细则并扩展为表格键名
 		$info_item = array_values(array_filter(preg_split("/(@r@)/", $info_item), "EVEN", ARRAY_FILTER_USE_KEY));
 		array_unshift($info_item, "编号", "选手姓名", "作品名称");
-		array_push($info_item, "总分");
+		array_push($info_item, "总分", "最终得分");
 	}
 	unset($info_item);
 
@@ -140,7 +73,7 @@ function getCompsysScoreInfoByCompsysInfo($competitorInfo, $scoreRubric) {
 
 	$singleRow = array_unique($playerName, SORT_REGULAR);	// 求参赛选手名称的极大无关组
 	if(count($singleRow) == 1 && count($group) > 1) {
-		// 若剩下的行数为1（所有项都相同）则添加“总分”组
+		// 若剩下的行数为1（所有项都相同）且总组数大于1，则添加“总分”组
 		array_push($group, "总分");
 		array_push($info, array_merge(Array("编号", "选手姓名"), $group));
 		array_push($playerName, $singleRow[0]);
@@ -214,8 +147,8 @@ function getScoresByNamAndGroup($rawScoreInfomation, $name, $group) {
 	// 分数查询子函数
 
 	/// 函数功能：
-	// 在所有参赛队（或个人）信息集合中查询制定分组的指定参赛队（或个人）并返回
-	// 返回值为全部信息的一个元素，共有3列，具体结构如下：
+	// 在所有参赛队（或个人）信息集合中查询制定分组的指定参赛队（或个人）并返回符合条件的全部记录
+	// 返回值为全部信息的元素的集合，每个元素共有3列，具体结构如下：
 	// 第0列：该评分的评分细则；
 	// 第1列：对应的详细得分；
 	// 第2列：总分。
@@ -227,15 +160,76 @@ function getScoresByNamAndGroup($rawScoreInfomation, $name, $group) {
 	$scoreInformation = Array();
 	foreach ($rawScoreInfomation as $rawScoreInfomation_item) {
 		if ($rawScoreInfomation_item[0] == $name && $rawScoreInfomation_item[1] == $group) {
-			array_push($scoreInformation, $rawScoreInfomation_item[3][0],
-				$rawScoreInfomation_item[3][1], $rawScoreInfomation_item[4]);
-			break;
+			array_push($scoreInformation, Array($rawScoreInfomation_item[3][0],
+				$rawScoreInfomation_item[3][1], $rawScoreInfomation_item[4]));
 		}
 	}
 	return $scoreInformation;
 }
 
-function finalInformatoinToArray($title, $score) {
+function getSingleFirstScore($rawScoreInfomation, $name, $group) {
+	// 分数查询子函数
+
+	/// 函数功能：
+	// 在所有参赛队（或个人）信息集合中查询制定分组的指定参赛队（或个人）并返回查询到的所有成绩的第一条记录
+	// 返回值共有3列，具体结构如下：
+	// 第0列：该评分的评分细则；
+	// 第1列：对应的详细得分；
+	// 第2列：总分。
+
+	// 注：
+	// 本函数一定有返回值，若查询结果为空则返回一个空数组。
+	// 本函数用于兼容测试
+
+	/// 函数实现：
+	$scoreInformation = getScoresByNamAndGroup($rawScoreInfomation, $name, $group);
+	return count($scoreInformation) > 0 ? $scoreInformation[0] : Array();
+}
+
+function getSingleAverageScore($rawScoreInfomation, $name, $group) {
+	// 分数查询子函数
+
+	/// 函数功能：
+	// 在所有参赛队（或个人）信息集合中查询制定分组的指定参赛队（或个人）并对全部符合条件的记录进行求平均值合并
+	// 返回值为全部信息的元素的集合，每个元素共有3列，具体结构如下：
+	// 第0列：该评分的评分细则；
+	// 第1列：数组，每一个元素均为一条记录中的详细得分及总分；
+	// 第2列：最终得分，若评委人数大于等于5人则采用去掉最高分和最低分的方法，否则直接求平均数。
+
+	// 注：
+	// 本函数一定有返回值，若查询结果为空则返回一个空记录。
+
+	/// 函数实现：
+
+	$rawInfo = getScoresByNamAndGroup($rawScoreInfomation, $name, $group);
+	$itemNumber = count($rawInfo);
+
+	if ($itemNumber > 0) {
+		$scoreInformation = Array();
+		array_push($scoreInformation, $rawInfo[0][0]);
+		$rubricScore = Array();
+		$scoreSums = Array();
+		foreach ($rawInfo as $rawInfo_item) {
+			array_push($rawInfo_item[1], $rawInfo_item[2]);
+			array_push($rubricScore, $rawInfo_item[1]);
+			array_push($scoreSums, $rawInfo_item[2]);
+		}
+		$sum = array_sum($scoreSums);
+		if ($itemNumber >= 5) {
+			// 若评委人数大于等于5人则采用去掉最高分和最低分的方法，否则直接求平均数
+			$sum -= max($scoreSums) + min($scoreSums);
+			$itemNumber -= 2;
+		}
+		array_push($scoreInformation, $rubricScore, $sum / $itemNumber);
+	}
+	else {
+		$scoreInformation = Array("", Array(), 0);
+	}
+
+	return $scoreInformation;
+}
+
+function finalInformatoinToArray($title, $score, $number) {
 	// 竞赛成绩信息统一处理子函数
 
 	/// 函数功能：
@@ -258,19 +252,114 @@ function finalInformatoinToArray($title, $score) {
 			$rowCache = Array();
 			array_push($rowCache, $title[2][$groupIndex][$row], $title[3][$groupIndex][$row]);	// 编号、参赛队（或个人）名称和作品名称
 			// 查询当前正在写入的参赛队（或个人）的详细得分和总分
-			$detailedScore = getScoresByNamAndGroup($score, $title[2][$groupIndex][$row], $title[0][$groupIndex]);
-			if (count($detailedScore) > 0) {	// 判断该选手是否已被评分
-				$rowCache = array_merge($rowCache, $detailedScore[1], Array($detailedScore[2]));	// 填充选手得分
+			$detailedScore = getSingleAverageScore($score, $title[2][$groupIndex][$row], $title[0][$groupIndex]);
+			for ($recordNumber = count($detailedScore[1]); $recordNumber < $number; $recordNumber++) {
+				// 将得分记录数量扩充至评委数量，不足的用0补齐
+				$scoreCache = Array();
+				for ($col = 0; $col < count($title[1][$groupIndex]) - 3; $col++) { array_push($scoreCache, "0"); }	// 填充0
+				array_push($detailedScore[1], $scoreCache);
 			}
-			else {
-				for ($col = 0; $col < count($title[1][$groupIndex]) - 3; $col++) { array_push($rowCache, "0"); }	// 填充0
-			}
+			array_push($rowCache, $detailedScore[1], $detailedScore[2]);	// 将得分记录和总平均分写入行中
 			array_push($groupCache, $rowCache);	// 向矩阵中添加一整行
 		}
 		array_push($finalArray, $groupCache);	// 向数组中写入一个矩阵
 	}
 
 	return $finalArray;
+}
+
+function findScoreFromFinalInformation($information, $groupIndex, $name) {
+	// 最终得分查询子函数
+
+	/// 函数功能：
+	// 在竞赛成绩的矩阵信息中的指定分组（序号）中查询指定参赛队（或个人）的最终得分
+	// 返回值为一个浮点型变量
+
+	// 函数实现：
+	foreach ($information[$groupIndex] as $groupInfo_item) { if ($groupInfo_item[0] == $name) { return $groupInfo_item[3]; } }
+	return 0;	// 未找到记录时的默认值
+}
+
+function totalInformationToArray($title, $information) {
+	// 竞赛“总分”组信息重解析子函数
+
+	/// 函数功能：
+	// 将信息矩阵解析成总分分组形式，返回值为一个矩阵，其内容为总分表格中除去“编号”列的所有数据
+
+	// 函数实现：
+	$totalInformation = Array();
+
+	foreach (end($title[2]) as $playerList_item) {
+		$totalItem = Array();
+		for ($groupIndex = 0; $groupIndex < count($title[0]) - 1; $groupIndex++) {
+			array_push($totalItem, findScoreFromFinalInformation($information, $groupIndex, $playerList_item));
+		}
+		array_push($totalItem, array_sum($totalItem));
+		array_unshift($totalItem, $playerList_item);
+		array_push($totalInformation, $totalItem);
+	}
+
+	return $totalInformation;
+}
+
+function displayFinalInformation($title, $information, $number) {
+	// 竞赛成绩信息统一建表输出子函数
+
+	/// 函数实现：
+	// 分别输出各组的表格
+	for ($groupIndex = 0; $groupIndex < count($information); $groupIndex++) {
+		$detailNumber = count($title[1][$groupIndex]);	// 标题栏项目的数目
+
+		echo "<table class=\"dynamic-page-score-value\" border=\"1px\"><tr>";	// 解析表格标题栏
+		for ($col = 0; $col < $detailNumber; $col++) { echo "<th>".$title[1][$groupIndex][$col]."</th>"; }
+		echo "</tr>";
+
+		// 名次排序
+		$sortRule = array_column($information[$groupIndex], '3');
+		array_multisort($sortRule, SORT_DESC, $information[$groupIndex]);
+
+		for ($playerRow = 0; $playerRow < count($title[2][$groupIndex]); $playerRow++) {	// 向表格中按行写入参赛者信息
+			for ($judgeRow = 0; $judgeRow < $number; $judgeRow++) {	// 写入该参赛队（或个人）的每一条得分记录
+				echo "<tr>";
+
+				// 输出编号、参赛队（或个人）名称和作品名称
+				if ($judgeRow == 0) { echo "<td rowspan=\"".$number."\" width=\"40px\">".($playerRow + 1)."</td><td rowspan=\"".$number."\" width=\"160px\">".$information[$groupIndex][$playerRow][0]."</td><td rowspan=\"".$number."\" width=\"160px\">".$information[$groupIndex][$playerRow][1]."</td>"; }
+
+				// 输出当前正在写入的参赛队（或个人）的详细得分和总分
+				for ($col = 0; $col < $detailNumber - 4; $col++) { echo "<td width=\"100px\">".$information[$groupIndex][$playerRow][2][$judgeRow][$col]."</td>"; }
+
+				// 输出最终得分
+				if ($judgeRow == 0) { echo "<td rowspan=\"".$number."\" width=\"100px\">".number_format(round($information[$groupIndex][$playerRow][3], 2), 2, ".", "")."</td>"; }
+
+				echo "</tr>";
+			}
+		}
+		echo "</table>";
+	}
+
+	// 输出“总分”组.首先判断是否存在“总分”分组，不相等则说明存在“总分”组
+	if (count($title[2]) != count($title[3])) {
+		echo "<table class=\"dynamic-page-score-value\" border=\"1px\"><tr>";	// 解析表格标题栏
+		foreach (end($title[1]) as $title_item) { echo "<th>".$title_item."</th>"; }
+		echo "</tr>";
+
+		// 将信息矩阵解析成总分分组形式
+		$totalInformation = totalInformationToArray($title, $information);
+
+		// 名次排序
+		$sortRule = array_column($totalInformation, count($totalInformation[0]) - 1);
+		array_multisort($sortRule, SORT_DESC, $totalInformation);
+
+		for ($playerRow = 0; $playerRow < count($totalInformation); $playerRow++) {
+			echo "<tr>"."<td width=\"40px\">".($playerRow + 1)."</td>";
+			for ($col = 0; $col < count($totalInformation[$playerRow]); $col++) {
+				echo ($col == 0 ? "<td width=\"160px\">" : "<td width=\"100px\">").($col == 0 ? $totalInformation[$playerRow][$col] : number_format(round($totalInformation[$playerRow][$col], 2), 2, ".", ""))."</td>";
+			}
+			echo "</tr>";
+		}
+
+		echo "</table>";
+	}
 }
 
 ?>

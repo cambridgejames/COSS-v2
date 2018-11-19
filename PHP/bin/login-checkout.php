@@ -55,7 +55,19 @@ function LoginSucceed($nickname, $authority) {
 	session_start();
 	$_SESSION['username'] = $nickname;
 	$_SESSION['authority'] = $authority;
-	echo "succeed";
+	switch($authority) {
+		case 1:
+		case 2:
+		case 3:
+			echo "administrator";
+			break;
+		case 4:
+		case 5:
+			echo "succeed";
+			break;
+		default:
+			echo "用户名或密码错误";
+	}
 }
 
 ?>

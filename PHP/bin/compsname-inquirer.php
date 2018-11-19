@@ -8,13 +8,6 @@ $authority = (isset($_SESSION['authority'])) ? $_SESSION['authority'] : "";
 
 if ($username && $authority) {
 	switch ($authority) {
-		case 1:
-		case 2:
-			$query = "SELECT DISTINCT comps_name FROM comps_info";
-			break;
-		case 3:
-			$query = "SELECT DISTINCT comps_name FROM users_info WHERE users_nickname = '$username'";
-			break;
 		case 4:
 			$query = "SELECT DISTINCT comps_name FROM users_info WHERE users_nickname = '$username'";
 			break;
@@ -23,6 +16,7 @@ if ($username && $authority) {
 			break;
 		default:
 			echo "failed";
+			exit();
 	}
 
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
