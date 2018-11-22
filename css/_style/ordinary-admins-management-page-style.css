@@ -1,19 +1,20 @@
 @charset "utf-8";
 
 .ordinary-header {
-	width: 1100px;
+	width: 1060px;
 	margin: 0 auto;
 }
 
 .ordinary-header .compsname {
 	font-size: 35px;
-	font-weight: 400;
-	color: #24B1F8;
-	margin-top: 20px;
+	font-weight: 700;
+	color: #000000;
+	margin: 20px 0;
+	text-align: center;
 }
 
 .ordinary-header .header-line-continer {
-	width: 1100px;
+	width: 1060px;
 	height: 3px;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -26,14 +27,15 @@
 }
 
 .ordinary-body {
-	width: 1100px;
+	width: 1060px;
 	margin: 0 auto;
 }
 
-.time, .score {
-	width: 1060px;
+.message-box {
+	width: 1020px;
 	margin: 0 auto;
 	margin-top: 20px;
+	margin-bottom: 20px;
 	padding: 20px 20px;
 	background: #f8f8f8;
 	box-shadow:silver 1px 1px 15px 3px;
@@ -42,11 +44,17 @@
 
 .ordinary-body .ordinary-body-timer {
 	margin-bottom: 20px;
-	background: #E61616;
+	min-height: 100px;
 	position: relative;
+	font-size: 50px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 100px;
 }
 
 .button {
+	position: absolute;
+	top: 20px;
 	padding-bottom: 2px;
 	width: 122px;
 	height: 2pc;
@@ -63,75 +71,120 @@
 	cursor: pointer;
 }
 
-.score .score-buttons {
-	width: 100%;
+#score .score-buttons {
+	width: 1016px;
 	position: relative;
+	background: #E3E3E3;
+	border-left: 1px solid #E3E3E3;
+	border-right: 1px solid #E3E3E3;
 }
 
-.score .score-buttons ul {
+#score .score-buttons ul {
 	width: 100%;
-	height: 30px;
+	height: 34px;
 	left: 0px;
 }
 
-.score .score-buttons ul li {
+#score .score-buttons ul .groupItem {
 	float: left;
 	width: 120px;
-	height: 30px;
-	line-height: 30px;
+	height: 34px;
+	line-height: 34px;
 	text-align: center;
 	overflow: hidden;
-	font-weight: 400;
+	font-weight: 600;
 	font-size: 16px;
-	font-family: Tahoma,Helvetica,Arial,’宋体’,sans-serif;
+	font-family: "Microsoft Yahei";
+	background: #E3E3E3;
+	color: #000000;
 }
 
-.score .score-buttons ul li:hover {
-	background: #f8f8f8;
+#score .score-buttons ul .groupItem:hover {
+	background: #F8F8F8;
+	-webkit-transition: background linear .2s;
+	-moz-transition: background linear .2s;
+	-o-transition: background linear .2s;
+	transition: background linear .2s;
 }
 
-.flush {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	z-index: 1;
-	padding-bottom: 2px;
-	width: 122px;
+#score .score-buttons ul .groupItem-selected {
+	float: left;
+	width: 120px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	overflow: hidden;
+	font-weight: 600;
+	font-size: 16px;
+	font-family: "Microsoft YaHei", "Microsoft YaHei" !important;
+	background: #F8F8F8;
+	color: #04519C;
+	border-top: 4px solid #04519C;
+	margin: -1px 0 -1px 0;
+	-webkit-transition: color linear .2s;
+	-moz-transition: color linear .2s;
+	-o-transition: color linear .2s;
+	transition: color linear .2s;
+	-webkit-transition: border-top linear .2s;
+	-moz-transition: border-top linear .2s;
+	-o-transition: border-top linear .2s;
+	transition: border-top linear .2s;
+}
+
+.fun-title {
+	width:100%;
 	height: 2pc;
-	border: none;
-	opacity: 0.7;
-	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 0;
-	color: #fff;
-	font-weight: 700;
-	font-size: 14px;
+	margin-bottom: 14px;
+	text-align: left;
+	line-height: 2pc;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: PingFangSC-Light, "helvetica neue", "hiragino sans gb", tahoma, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif;
 }
 
-.flush:hover {
-	background: url(../../imgs/site_buttons_bg.png) no-repeat 0 -2pc;
-	cursor: pointer;
-}
-
-.score .value {
+#score .value {
 	width: 100%;
 	min-height: 100px;
 	position: relative;
 }
 
-.score .no-data {
-	width:100%;
-	min-height: 2pc;
-	text-align: left;
-	font-size: 16px;
-	font-family: Tahoma,Helvetica,Arial,’宋体’,sans-serif;
+.dynamic-page-score-value {
+	width: 1018px;
 }
 
-.dynamic-page-score-value {
-	width: 100%;
+.dynamic-page-score-value .single-line {
+	background-color: #F8F8F8;
+}
+
+.dynamic-page-score-value .double-line {
+	background-color: #F0EFED;
+}
+
+.dynamic-page-score-value tbody tr:hover {
+	background-color: #E4EDF5;
+	-webkit-transition: background-color linear .1s;
+	-moz-transition: background-color linear .1s;
+	-o-transition: background-color linear .1s;
+	transition: background-color linear .1s;
 }
 
 .dynamic-page-score-value th, .dynamic-page-score-value td {
-	border: 1px solid #999;
+	border: 1px solid #E3E3E3;
 	height: 2em;
 	vertical-align: middle;
 	text-align: center;
+}
+
+.information {
+	width: 978px;
+	border: 1px solid #62B2DF;
+	background: #CBE8F8;
+	padding: 20px;
+	font-size: 14px;
+	font-family: PingFangSC-Light, "helvetica neue", "hiragino sans gb", tahoma, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif;
+	line-height: 20px;
+}
+
+.ordinary-footer {
+	margin: 20px 0;
 }

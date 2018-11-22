@@ -1,6 +1,7 @@
 /* CSS Document */
 * {
     cursor: default;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 html, body, div, span, object, iframe,

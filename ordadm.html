@@ -12,32 +12,57 @@
 	<link rel="icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
 	<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
 	<script src="js/ext/cookies.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/ext/base64.js" charset="utf-8" type="text/javascript"></script>
 	<script src="js/ordinary-admins-Ajax.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/ordinary-admins-other-functions.js" charset="utf-8" type="text/javascript"></script>
 </head>
 <body onload="showWellcomPage()">
-	<table class="public-column" onselectstart="return false">
-		<tr class="public-admin-header" id="public-admin-header">
-			<td class="public-toolbar">
-				<div class="content">
-					<img src="https://www.compscosys.cn/png/imgs/icon">
-					<!-- <strong>竞赛在线评分系统</strong> -->
-				</div>
-			</td>
-			<td class="header-function">
-				<ul>
-					<li>用户信息1</li>
-					<li>用户信息2</li>
-					<li>用户信息3</li>
-					<li>用户信息4</li>
-				</ul>
-			</td>
-		</tr>
-		<tr class="public-admin-main" id="pubilc-admin-main">
-			<td class="public-toolbar">
-				<div class="container" id="home-container"></div>
-			</td>
-			<td><div class="public-content" id="public-content"></div></td>
-		</tr>
-	</table>
+	<div style="position: absolute; width: 100%; height: 100%; table-layout: fixed;">
+		<table class="public-column" onselectstart="return false">
+			<tr class="public-admin-header" id="public-admin-header" style="background-color: #292A2A">
+				<td class="public-toolbar">
+					<div class="content">
+						<img src="http://img.hb.aicdn.com/364e07da53732475f1ae5e898d6ad9a9e01e8bfd3ac1-YV9g0J_fw658">
+						<!-- <strong>竞赛在线评分系统</strong> -->
+					</div>
+				</td>
+				<td class="header-function">
+					<ul>
+						<li>
+							<div id="admin-name"></div>
+							<ul>
+								<li>账号信息</li>
+								<li>修改密码</li>
+								<li onclick="returnBack()">退出当前账号</li>
+							</ul>
+						</li>
+						<li>竞赛信息 ◢</li>
+						<li>设置 ◢</li>
+					</ul>
+				</td>
+			</tr>
+			<tr class="public-admin-main" id="pubilc-admin-main">
+				<td class="public-toolbar" style="background-color: #323534;">
+					<div style="position: absolute; top: 0; width: 200px; height: 50px; line-height: 50px; font-size: 16px; text-align: center;">竞赛列表</div>
+					<div class="container" id="home-container"></div>
+					<div class="home-functions" id="home-functions">
+						<div class="home-function-container">
+							<div class="function-icon">
+								<img src="http://img.hb.aicdn.com/330452c2a185e967c50889d43e8be100061063bfd61-E7r3Yw_fw658">
+							</div>
+							<div class="function-tip">评委管理</div>
+						</div>
+						<div class="home-function-container">
+							<div class="function-icon">
+								<img src="http://img.hb.aicdn.com/c6a9c3d53539fd8a6c4c465b5c0bcece54449bbe14ad-IOQnuG_fw658">
+							</div>
+							<div class="function-tip">添加新竞赛</div>
+						</div>
+					</div>
+				</td>
+				<td><div class="public-content" id="public-content"></div></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

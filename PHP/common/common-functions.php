@@ -64,4 +64,13 @@ function checkIsLegal($condition, $sqlconnection = null, $code) {
 	}
 }
 
+function getFileContent($fileName, $fileMode) {
+	$filename = "Message/ordinary-administrator-station-message.html";
+	$handle = fopen($fileName, $fileMode);	// 读取二进制文件时，需要将第二个参数设置成'rb'
+	//通过filesize获得文件大小，将整个文件一下子读到一个字符串中
+	$contents = fread($handle, filesize($fileName));
+	fclose($handle);
+	return $contents;
+}
+
 ?>

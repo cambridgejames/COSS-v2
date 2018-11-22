@@ -25,6 +25,7 @@ if ($username && $authority) {
 	mysqli_close($dbc);
 
 	if (mysqli_num_rows($result) > 0) {
+		echo $username."@c@";
 		while($row = mysqli_fetch_assoc($result)) {
 			echo "<div onclick=\"getPageByCompsname(this.innerHTML)\">".$row['comps_name']."</div>";
 		}
