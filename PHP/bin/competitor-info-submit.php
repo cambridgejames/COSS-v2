@@ -28,6 +28,11 @@ checkIsLegal($scorem == $scoresum && $scoresum != 0, null, 4);
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
+$result = mysqli_query($dbc, "SELECT isstart_sign FROM comps_info WHERE comps_name = '$compsname'");
+checkIsLegal(mysqli_num_rows($result) > 0, $dbc, 9);
+mysqli_data_seek($result, 0);
+checkIsLegal(mysqli_fetch_array($result)[0] == 1, $dbc, 10);
+
 $query = "SELECT users_id, works_number, reviewed_number FROM users_info WHERE users_nickname = '$judgename' AND users_authority = 4 AND comps_name = '$compsname'";
 $result = mysqli_query($dbc, $query);
 checkIsLegal(mysqli_num_rows($result) > 0, $dbc, 5);

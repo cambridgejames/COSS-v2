@@ -1,0 +1,866 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+
+<!-- Page title -->
+<title>竞赛在线评分系统</title>
+<link rel="icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+<!-- /Page title -->
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- /Meta -->
+
+<!-- SEO Meta -->
+<meta name="author" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<!-- /SEO Meta -->
+
+<!-- OpenGraph meta -->
+<meta property="og:image" content="icon-180x180.png">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<!-- /OpenGraph meta -->
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="assets/img/favicon.png">
+<!-- /Favicon -->
+
+<!-- Styles -->
+<link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="components/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="components/elegant-font/style.css">
+<link rel="stylesheet" href="components/owl-carousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="components/owl-carousel/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="components/sweetalert/sweetalert.css">
+<link rel="stylesheet" href="css/Plugins/index/magnific-popup.css">
+<link rel="stylesheet" href="css/Plugins/index/theme.css" title="theme-default">
+<!-- /Styles -->
+
+<!-- TODO: select one of the presented -->
+<!-- Predefined Schemes -->
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-dulllavender-light.css" title="theme-dulllavender-light">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-dulllavender.css"       title="theme-dulllavender">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-dulllavender-dark.css"  title="theme-dulllavender-dark">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-nepal-light.css"        title="theme-nepal-light">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-nepal.css"              title="theme-nepal">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-nepal-dark.css"         title="theme-nepal-dark">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-tradewind-light.css"    title="theme-tradewind-light">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-tradewind.css"          title="theme-tradewind">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-tradewind-dark.css"     title="theme-tradewind-dark">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-tanhide-light.css"      title="theme-tanhide-light">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-tanhide.css"            title="theme-tanhide">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-tanhide-dark.css"       title="theme-tanhide-dark">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-burntsienna-light.css"  title="theme-burntsienna-light">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-burntsienna.css"        title="theme-burntsienna">
+<link rel="alternate stylesheet" href="css/Plugins/index/theme-burntsienna-dark.css"   title="theme-burntsienna-dark">
+<!-- /Predefined Schemes -->
+
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader" class="preloader">
+<div class="loader">加载中...</div>
+</div>
+<!-- /PRELOADER -->
+
+<!-- MAIN CONTAINER -->
+<main class="main-container">
+
+<!-- SECTION > HERO: Home -->
+<section id="home" class="section hero">
+
+	<!-- CAROUSEL -->
+	<div class="owl-carousel owl-theme owl-navigation owl-autoplay owl-no-mousedrag owl-reveal"
+		 data-owl-autoplay-timeout="6500"
+		 data-owl-items="1"
+		 data-owl-animate-in="heroCarouselIn"
+		 data-owl-animate-out="heroCarouselOut">
+
+		<!-- CAROUSEL SLIDE -->
+		<div class="slide fullscreen bg-cover mask mask-black"
+			 style="background-image: url(http://img.hb.aicdn.com/8e978ecfa1bb3e7b22fe51e9e9846903202d624d5f49c-WU8oh7_fw658)">
+
+			<!-- Vertical Middle Block -->
+			<div class="vertical-middle mask-after">
+				<div class="container">
+
+					<!-- Hero Heading -->
+					<div class="row hero-heading">
+						<div class="col-xs-12 text-center">
+
+							<div class="hero-title text-white reveal"
+								 data-reveal-distance="-30px"
+								 data-reveal-duration="500"
+								 data-reveal-reset="1">
+
+								竞赛在线评分系统
+
+							</div>
+
+							<div class="hero-subtitle text-white reveal"
+								 data-reveal-distance="30px"
+								 data-reveal-duration="800"
+								 data-reveal-delay="150"
+								 data-reveal-reset="1">
+
+								<!-- Various versions have evolved over the years, sometimes by accident, sometimes on purpose -->
+								Wellcome to Competition Online Scoring System
+
+							</div>
+
+						</div>
+					</div>
+					<!-- /Hero Heading -->
+
+					<!-- Hero Buttons -->
+					<div class="row reveal"
+						 data-reveal-duration="800"
+						 data-reveal-delay="350"
+						 data-reveal-reset="1">
+
+						<div class="col-xs-6 text-right">
+							<a href="#features" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
+						</div>
+						<div class="col-xs-6">
+							<a href="login.html" class="btn btn-lg btn-squared btn-base text-uppercase">用户登录</a>
+						</div>
+
+					</div>
+					<!-- /Hero Buttons -->
+
+				</div>
+			</div>
+			<!-- /Vertical Middle Block -->
+
+		</div>
+		<!-- /CAROUSEL SLIDE -->
+
+		<!-- CAROUSEL SLIDE -->
+		<div class="slide fullscreen bg-cover mask mask-black"
+			 style="background-image: url(http://img.hb.aicdn.com/7b9a35575603b952e93d0cf1d0ba7b665e7d677d86e6c-3Dw6b2_fw658)">
+
+			<!-- Vertical Middle Block -->
+			<div class="vertical-middle mask-after">
+				<div class="container">
+
+					<!-- Hero Heading -->
+					<div class="row hero-heading">
+						<div class="col-xs-12 text-center">
+
+							<div class="hero-title text-white reveal"
+								 data-reveal-origin="left"
+								 data-reveal-distance="-30px"
+								 data-reveal-duration="500"
+								 data-reveal-reset="1">
+
+								一键获取评分结果 让竞赛管理更加便捷
+
+							</div>
+
+							<div class="hero-subtitle text-white reveal"
+								 data-reveal-origin="right"
+								 data-reveal-distance="30px"
+								 data-reveal-duration="800"
+								 data-reveal-delay="150"
+								 data-reveal-reset="1">
+
+								<!-- Various versions have evolved over the years, sometimes by accident, sometimes on purpose -->
+								One Click to get the score result, make competition management more convenient
+
+							</div>
+
+						</div>
+					</div>
+					<!-- /Hero Heading -->
+
+					<!-- Hero Buttons -->
+					<div class="row reveal"
+						 data-reveal-duration="800"
+						 data-reveal-delay="350"
+						 data-reveal-reset="1">
+
+						<div class="col-xs-6 text-right">
+							<a href="#features" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
+						</div>
+						<div class="col-xs-6">
+							<a href="login.html" class="btn btn-lg btn-squared btn-base text-uppercase">用户登录</a>
+						</div>
+
+					</div>
+					<!-- /Hero Buttons -->
+
+				</div>
+			</div>
+			<!-- /Vertical Middle Block -->
+
+		</div>
+		<!-- /CAROUSEL SLIDE -->
+
+		<!-- CAROUSEL SLIDE -->
+		<div class="slide fullscreen bg-cover mask mask-black"
+			 style="background-image: url(http://img.hb.aicdn.com/e4912b202020a014a51ffdeb762eda4afc955a34a1d52-vcpqeh_fw658)">
+
+			<!-- Vertical Middle Block -->
+			<div class="vertical-middle mask-after">
+				<div class="container">
+
+					<!-- Hero Heading -->
+					<div class="row hero-heading">
+						<div class="col-xs-12 text-center">
+
+							<div class="hero-title text-white reveal"
+								 data-reveal-scale="1.5"
+								 data-reveal-duration="500"
+								 data-reveal-reset="1">
+
+								<!-- With BEST Unsplash Images -->
+								更优秀的竞赛评分解决方案
+
+							</div>
+
+							<div class="hero-subtitle text-white reveal"
+								 data-reveal-distance="30px"
+								 data-reveal-duration="800"
+								 data-reveal-delay="150"
+								 data-reveal-reset="1">
+
+								<!-- Various versions have evolved over the years, sometimes by accident, sometimes on purpose -->
+								Youxiu de jingsai pingfen jiejue fangan, zhe ju hua, qishi shi pinyin
+
+							</div>
+
+						</div>
+					</div>
+					<!-- /Hero Heading -->
+
+					<!-- Hero Buttons -->
+					<div class="row reveal"
+						 data-reveal-duration="800"
+						 data-reveal-delay="350"
+						 data-reveal-reset="1">
+
+						<div class="col-xs-6 text-right">
+							<a href="#features" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
+						</div>
+						<div class="col-xs-6">
+							<a href="login.html" class="btn btn-lg btn-squared btn-base text-uppercase">用户登录</a>
+						</div>
+
+					</div>
+					<!-- /Hero Buttons -->
+
+				</div>
+			</div>
+			<!-- /Vertical Middle Block -->
+
+		</div>
+		<!-- /CAROUSEL SLIDE -->
+
+	</div>
+	<!-- /CAROUSEL -->
+
+</section>
+<!-- /SECTION > HERO: Home -->
+<!-- <div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div> -->
+
+<!-- SECTION: Features -->
+<section id="features" class="section">
+	<div class="container">
+
+		<!-- Section Content -->
+		<div class="row">
+
+			<!-- ICON BOX: Clean Design -->
+			<div class="col-xs-12 col-sm-4 icon-box reveal"
+				 data-reveal-duration="600">
+
+				<span class="icon icon_link_alt"></span>
+				<div class="title text-dark">简洁的操作界面</div>
+				<div class="description">
+					<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at. -->
+					系统拥有简洁的操作界面，保证无论是竞赛管理员、评委还是游客都能够快速的学会使用，方便初次使用本系统的用户能够快速适应自动化评分系统。
+				</div>
+				<a href="#" class="btn btn-base">了解更多</a>
+
+			</div>
+			<!-- /ICON BOX: Clean Design -->
+
+			<!-- ICON BOX: Mobile Friendly -->
+			<div class="col-xs-12 col-sm-4 icon-box reveal"
+				 data-reveal-duration="600"
+				 data-reveal-delay="250">
+
+				<span class="icon icon_mobile"></span>
+				<div class="title text-dark"><!-- Mobile Friendly -->游客端实时显示</div>
+				<div class="description">
+					<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at. -->
+					观众可以通过在手机端登录并查找到对应的竞赛ID来查看每一位选手的实时比分以及其它与竞赛相关的数据，代替了传统的主持人播报比分的方式，使分数查看更加高效。
+				</div>
+				<a href="#" class="btn btn-base">了解更多</a>
+
+			</div>
+			<!-- /ICON BOX: Mobile Friendly -->
+
+			<!-- ICON BOX: Well Documented -->
+			<div class="col-xs-12 col-sm-4 icon-box reveal"
+				 data-reveal-duration="600">
+
+				<span class="icon icon_pens"></span>
+				<div class="title text-dark">快速导出结果</div>
+				<div class="description">
+					<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at. -->
+					通过竞赛管理员账号，可以一键导出整个竞赛的所有评分结果，大大降低管理人员保存竞赛结果的难度。
+				</div>
+				<a href="#" class="btn btn-base">了解更多</a>
+
+			</div>
+			<!-- /ICON BOX: Well Documented -->
+
+		</div>
+		<!-- /Section Content -->
+
+	</div>
+</section>
+<!-- /SECTION: Features -->
+
+<!-- SECTION: Numbers -->
+<section id="numbers" class="section bg-center-top parallax mask mask-black text-white"
+		 style="background-image: url(http://img.hb.aicdn.com/d34897291bc3760abb1476ba8bbfefb1b57c3dc519f50-Lgpbpk_fw658);" data-stellar-background-ratio="0.4">
+	<div class="container mask-after">
+
+		<!-- Section Content -->
+		<div class="row">
+
+			<!-- STAT NUMBER: Finished Projects-->
+			<div class="col-sm-3 col-xs-6">
+				<div class="stat-number">
+					<div class="number animate-number" data-value="180">0</div>
+					<div class="title-separator title-separator-white"></div>
+					<div class="title">这四个数字只</div>
+				</div>
+			</div>
+			<!-- /STAT NUMBER: Finished Projects-->
+
+			<!-- STAT NUMBER: Happy Customers-->
+			<div class="col-sm-3 col-xs-6">
+				<div class="stat-number">
+					<div class="number animate-number" data-value="1806">0</div>
+					<div class="title-separator title-separator-white"></div>
+					<div class="title">是用来装逼的</div>
+				</div>
+			</div>
+			<!-- /STAT NUMBER: Happy Customers-->
+
+			<!-- STAT NUMBER: Coffee Cups-->
+			<div class="col-sm-3 col-xs-6">
+				<div class="stat-number">
+					<div class="number animate-number" data-value="238">0</div>
+					<div class="title-separator title-separator-white"></div>
+					<div class="title">因为它较炫酷</div>
+				</div>
+			</div>
+			<!-- /STAT NUMBER: Coffee Cups-->
+
+			<!-- STAT NUMBER: Days at Work-->
+			<div class="col-sm-3 col-xs-6">
+				<div class="stat-number">
+					<div class="number animate-number" data-value="3485">0</div>
+					<div class="title-separator title-separator-white"></div>
+					<div class="title">不忍心删掉它</div>
+				</div>
+			</div>
+			<!-- /STAT NUMBER: Days at Work-->
+
+		</div>
+		<!-- /Section Content -->
+
+	</div>
+</section>
+<!-- /SECTION: Numbers -->
+
+<!-- SECTION: Best Features Carousel -->
+<section id="best-features" class="section">
+	<div class="container">
+
+		<!-- Section Header -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+				<header class="section-header text-center">
+					<div class="section-title text-uppercase">为何要选择竞赛在线评分系统</div>
+					<div class="title-separator"></div>
+					<div class="section-subtitle">
+						<!-- Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+						of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+						a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+						Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites. -->
+						竞赛在线评分系统我特么实在编不下去了。但是我估计没有多少人会无聊到把主页看的这么清楚，所以让我们想说点啥就说点啥吧。这个竞赛在线评分系统是开发者独自一人兼任前端后端和美工，从2018年07月25日开始，断断续续经历了四个月的时间，历经种种磨难才基本开发出来的，其中由于种种原因，用于本系统开发的总时间实际上加起来不超过两个月，但是现在依旧只完成了主要功能，很多按钮你点了都是没反应的。就连这个主页都是我从网上找的模板改的。
+					</div>
+				</header>
+			</div>
+		</div>
+		<!-- /Section Header -->
+
+		<!-- Section Content -->
+		<div class="row section-content">
+			<div class="col-xs-12">
+
+				<!-- Carousel -->
+				<div class="owl-carousel owl-theme owl-navigation reveal" data-reveal-opacity=".7" data-reveal-scale="1.0">
+
+					<!-- Carousel Item -->
+					<div class="item">
+
+						<div class="row">
+
+							<!-- Slide Image -->
+							<div class="col-xs-12 col-sm-6">
+								<div class="image xs-mb">
+									<img src="http://img.hb.aicdn.com/d1989beabd110664f3a11e4ad731a11ab633393220b02-eibeo2_fw658" alt="">
+								</div>
+							</div>
+							<!-- /Slide Image -->
+
+							<!-- Slide Content -->
+							<div class="col-xs-12 col-sm-6">
+
+								<div class="h3">简洁的操作界面</div>
+
+								<p>
+									<!-- There are many variations of passages of Lorem Ipsum available, but the majority
+									have suffered alteration in some form, by injected humour, or randomised words which
+									don't look even slightly believable. -->
+									系统拥有简洁的操作界面，保证无论是竞赛管理员、评委还是游客都能够快速的学会使用，方便初次使用本系统的用户能够快速适应自动化评分系统。通过竞赛管理员账号，可以一键导出整个竞赛的所有评分结果，大大降低管理人员保存竞赛结果的难度。
+								</p>
+
+								<ul class="list-unstyled mb">
+									<li><i class="icon icon-inline fa fa-star"></i>如果你足够细心，你就可以发现。</li>
+									<li><i class="icon icon-inline fa fa-check"></i>上面这段话我直接复制的前面的。</li>
+								</ul>
+
+								<div class="alert alert-info" role="alert">
+									<i class="icon icon-inline icon-inline-block icon-1p5x fa fa-info-circle text-info"></i>
+									<span class="strong">为什么我要复制前面的：</span>
+									<!-- There are many variations of passages of Lorem Ipsum available, but the majority
+									have suffered alteration in some form. -->
+									因为字太多了，我想不出来要写点啥啊。但是我觉得，既然你已经看到这了，那我们一定是很有缘了。不如仔细找找这个主页的其它地方吧，那里藏着一个大三老学长的心声。
+								</div>
+							</div>
+							<!-- /Slide Content -->
+
+						</div>
+
+					</div>
+					<!-- /Carousel Item -->
+
+					<!-- Carousel Item -->
+					<div class="item">
+
+						<div class="row">
+
+							<!-- Slide Image -->
+							<div class="col-xs-12 col-sm-6">
+								<div class="image xs-mb">
+									<img src="http://img.hb.aicdn.com/eb2932d3a1f6c24ec7723452d772d031d654f94414ae5-pc9TkB_fw658" alt="">
+								</div>
+							</div>
+							<!-- /Slide Image -->
+
+							<!-- Slide Content -->
+							<div class="col-xs-12 col-sm-6">
+
+								<div class="h3 text-dark">游客端实时显示</div>
+
+								<p>
+									<!-- There are many variations of passages of Lorem Ipsum available, but the majority
+									have suffered alteration in some form, by injected humour, or randomised words which
+									don't look even slightly believable. -->
+									你们能相信么？丫的现在已经是凌晨五点钟了，然而劳资的代码还是没有敲完……所以请允许我在这主页的不起眼的小角落里吐槽一下自己的代码。我粗略的统计了一下，在这不到两个月的时间里，我大概写了得有六千多行的代码吧……当然，这不包括我引用的第三方函数库。
+								</p>
+
+								<ul class="list-unstyled mb">
+									<li><i class="icon icon-inline fa fa-star"></i>请大家继续向右翻</li>
+									<li><i class="icon icon-inline fa fa-check"></i>右面还有一页</li>
+								</ul>
+
+								<div class="alert alert-info" role="alert">
+									<i class="icon icon-inline icon-inline-block icon-1p5x fa fa-info-circle text-info"></i>
+									<span class="strong">重点又来了：</span>
+									<!-- There are many variations of passages of Lorem Ipsum available, but the majority
+									have suffered alteration in some form. -->
+									请大家抬头看一眼坐在右前方（如果我没猜错的话应该是右前方吧，反正去年我就在那个地方）的网络部的成员们，他们是这场活动的承办方。本大三老学长看着他们这么辛苦，觉得甚是心疼。
+								</div>
+							</div>
+							<!-- /Slide Content -->
+
+						</div>
+
+					</div>
+					<!-- /Carousel Item -->
+
+					<!-- Carousel Item -->
+					<div class="item">
+
+						<div class="row">
+
+							<!-- Slide Image -->
+							<div class="col-xs-12 col-sm-6">
+								<div class="image xs-mb">
+									<img src="http://img.hb.aicdn.com/a7303d6946e4ef2ee1ee714453f96d71aca955a629313-3jWV8r_fw658" alt="">
+								</div>
+							</div>
+							<!-- /Slide Image -->
+
+							<!-- Slide Content -->
+							<div class="col-xs-12 col-sm-6">
+
+								<div class="h3 text-dark">快速导出结果</div>
+
+								<p>
+									<!-- There are many variations of passages of Lorem Ipsum available, but the majority
+									have suffered alteration in some form, by injected humour, or randomised words which
+									don't look even slightly believable. -->
+									当我改到这里的时候已经快要凌晨六点了。虽然改模板是很简单的事情，但是我特么得要知道写点啥啊。这个模板怎么会有这么多要写字的地方……好了，大伙，如果您能体会到我这小小的辣鸡web开发人员的不易的话，看到主页最下面的版权声明栏了没有？我在那里写了我的名字。今后大家要是有什么能获奖的好事儿，记得叫上我，谢谢！
+								</p>
+
+								<ul class="list-unstyled mb">
+									<li><i class="icon icon-inline fa fa-star"></i>我只是一个辣鸡的大三老学长</li>
+									<li><i class="icon icon-inline fa fa-check"></i>在这里恳求学弟学妹们带飞</li>
+								</ul>
+
+								<div class="alert alert-info" role="alert">
+									<i class="icon icon-inline icon-inline-block icon-1p5x fa fa-info-circle text-info"></i>
+									<span class="strong">重点再说一遍：</span>
+									<!-- There are many variations of passages of Lorem Ipsum available, but the majority
+									have suffered alteration in some form. -->
+									如果您能体会到我这小小的辣鸡web开发人员的不易的话，看到主页最下面的版权声明栏了没有？我在那里写了我的名字。今后大家要是有什么能获奖的好事儿，记得叫上我，谢谢！
+								</div>
+							</div>
+							<!-- /Slide Content -->
+
+						</div>
+
+					</div>
+					<!-- /Carousel Item -->
+
+				</div>
+				<!-- /Carousel -->
+
+			</div>
+		</div>
+		<!-- /Section Content -->
+
+	</div>
+</section>
+<!-- /SECTION: Best Features Carousel -->
+
+<!-- SECTION: Video Tutorial -->
+<section id="video-tutorial" class="section text-white bg-center-top bg-fixed mask mask-black xs-text-center"
+		 style="background-image: url(http://img.hb.aicdn.com/29cf7ddb4e5d2df99b4d743549441e6d1a8caaa92203d-vX5ZZy_fw658)">
+	<div class="container mask-after">
+
+		<!-- Section Content -->
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-8 col-md-5 xs-mb reveal"
+				 data-reveal-duration="700"
+				 data-reveal-distance="30px">
+
+				<div class="h2 text-center pt no-margin text-white">观看视频使用指南</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-4 col-md-2 xs-mb reveal"
+				 data-reveal-duration="700"
+				 data-reveal-delay="400"
+				 data-reveal-scale="1.00"
+				 data-reveal-distance="0">
+
+				<a href="#" class="block link-white text-center mt-0p5"><i class="icon icon-inline icon-4x fa fa-fw fa-play-circle-o"></i></a>
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-5 reveal"
+				 data-reveal-duration="700"
+				 data-reveal-distance="-30px">
+
+				<p class="mt">
+					<!-- Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+					classical Latin literature from 45 BC -->
+					This is just a fake link, but it's useless. If you do, and you are wondering if you have a problem with your network, please stop and flip down. There are some more important things below.
+				</p>
+			</div>
+
+		</div>
+		<!-- /Section Content -->
+
+	</div>
+</section>
+<!-- /SECTION: Video Tutorial -->
+
+<!-- SECTION: More BEST features -->
+<section id="additional" class="section">
+	<div class="container" style="">
+
+		<!-- Section Header -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+				<header class="section-header text-center">
+					<div class="section-title text-uppercase">更多优秀的地方</div>
+					<div class="title-separator"></div>
+					<div class="section-subtitle">
+						<!-- Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+						of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+						a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+						Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites. -->
+						这块儿是模板自带的内容，词穷了不知道该写点儿啥，留着没用，但是删了又不美观，所以大家就凑合着看吧！或者大家可以直接跳过这个版块儿，去看最后面的版块儿。
+					</div>
+				</header>
+			</div>
+		</div>
+		<!-- /Section Header -->
+
+		<!-- Section Content -->
+		<div class="row section-content">
+
+			<!-- ICON BOX HORIZONTAL: HTML5 & CSS3 -->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="icon-box-horizontal reveal">
+					<i class="icon icon_link_alt"></i>
+					<div class="title">HTML5 & CSS3</div>
+					<p class="description">
+						It is a long established fact that a reader will be distracted by the readable
+						content of a page when looking at its layout.
+					</p>
+				</div>
+			</div>
+			<!-- /ICON BOX HORIZONTAL: HTML5 & CSS3 -->
+
+			<!-- ICON BOX HORIZONTAL: Lightweight & SEO -->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="icon-box-horizontal reveal">
+					<i class="icon icon_easel"></i>
+					<div class="title">Lightweight & SEO</div>
+					<p class="description">
+						It is a long established fact that a reader will be distracted by the readable
+						content of a page when looking at its layout.
+					</p>
+				</div>
+			</div>
+			<!-- /ICON BOX HORIZONTAL: Lightweight & SEO -->
+
+			<!-- ICON BOX HORIZONTAL: Easy To Customize -->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="icon-box-horizontal reveal">
+					<i class="icon icon_puzzle"></i>
+					<div class="title">Easy To Customize</div>
+					<p class="description">
+						It is a long established fact that a reader will be distracted by the readable
+						content of a page when looking at its layout.
+					</p>
+				</div>
+			</div>
+			<!-- /ICON BOX HORIZONTAL: Easy To Customize -->
+
+			<!-- ICON BOX HORIZONTAL: 500+ Downloads -->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="icon-box-horizontal reveal">
+					<i class="icon icon_download"></i>
+					<div class="title">500+ Downloads</div>
+					<p class="description">
+						It is a long established fact that a reader will be distracted by the readable
+						content of a page when looking at its layout.
+					</p>
+				</div>
+			</div>
+			<!-- /ICON BOX HORIZONTAL: 500+ Downloads -->
+
+			<!-- ICON BOX HORIZONTAL: Made With Love -->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="icon-box-horizontal reveal">
+					<i class="icon icon_heart_alt"></i>
+					<div class="title">Made With Love</div>
+					<p class="description">
+						It is a long established fact that a reader will be distracted by the readable
+						content of a page when looking at its layout.
+					</p>
+				</div>
+			</div>
+			<!-- /ICON BOX HORIZONTAL: Made With Love -->
+
+			<!-- ICON BOX HORIZONTAL: 24/7 Support -->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="icon-box-horizontal reveal">
+					<i class="icon icon_cogs"></i>
+					<div class="title">24/7 Support</div>
+					<p class="description">
+						It is a long established fact that a reader will be distracted by the readable
+						content of a page when looking at its layout.
+					</p>
+				</div>
+			</div>
+			<!-- /ICON BOX HORIZONTAL: 24/7 Support -->
+
+		</div>
+		<!-- /Section Content -->
+
+	</div>
+</section>
+<!-- /SECTION: More BEST features -->
+
+<!-- SECTION: Contact -->
+<section id="contact" class="section bg-center-top mask mask-black text-white"
+		 style="background-image: url(http://img.hb.aicdn.com/8076b9ed3759e35aca57ab546b53abef424239b031ee4-CrSCyw_fw658)" data-stellar-background-ratio="0.4">
+	<div class="container mask-after">
+
+		<!-- Section Header -->
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<header class="section-header">
+					<div class="section-title text-uppercase text-white">联系我们</div>
+				</header>
+			</div>
+		</div>
+		<!-- /Section Header -->
+
+		<!-- Section Content -->
+		<div class="row section-content">
+
+			<!-- Office Information Column -->
+			<div class="col-xs-12 col-sm-6 col-md-5">
+
+				<div class="h4 strong text-uppercase text-white">作者信息</div>
+
+				<!-- ADDRESS -->
+				<!-- <address>
+					<strong class="text-uppercase">Twitter, Inc.</strong><br>
+					1355 Market Street, Suite 900<br>
+					San Francisco, CA 94103<br>
+					<abbr title="Phone">P:</abbr> (123) 456-7890
+				</address> -->
+				<address>
+					<strong class="text-uppercase">彭剑桥</strong><br>
+					<a href="mailto:#">cambridge_james@foxmial.com</a>
+				</address>
+				<!-- /ADDRESS -->
+				<address>
+					<strong>如果大家希望使用这个评分系统却又找不到<br>管理员账号注册入口，可以直接来找我哦</strong>
+				</address>
+
+				<!-- Social Media -->
+				<p class="strong text-uppercase">程序开发不易，跪求大家的支持</p>
+				<ul class="inline-icons mb">
+					<li><a href="#"><i class="icon-theme icon-o icon-brand-facebook fa fa-facebook"></i></a></li>
+					<li><a href="#"><i class="icon-theme icon-o icon-brand-twitter fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="icon-theme icon-o icon-brand-linkedin fa fa-linkedin"></i></a></li>
+					<li><a href="#"><i class="icon-theme icon-o icon-brand-instagram fa fa-instagram"></i></a></li>
+					<li><a href="#"><i class="icon-theme icon-o icon-brand-googleplus fa fa-google-plus"></i></a></li>
+				</ul>
+				<!-- /Social Media -->
+
+				<p class="small">
+					版权所有 &copy; Copyright 2018 . All Rights Reserved <br>
+					<a class="footer-copyright" href="http://www.miitbeian.gov.cn" target='_blank'>冀ICP备18027949号</a><span>&nbsp;|&nbsp;</span><a class="footer-copyright" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=13092802000135" target='_blank'>冀公网安备13092802000135号</a>
+				</p>
+
+			</div>
+			<!-- /Office Information Column -->
+
+			<!-- Contact Form Column -->
+			<div class="col-xs-12 col-sm-6 col-md-7 reveal"
+				 data-reveal-scale=".97"
+				 data-reveal-duration="500">
+
+				<!-- FORM: Contact Us -->
+				<form class="form-ajax" method="post">
+					<input type="hidden" name="pfvt[form]" value="Agency Landing">
+					<div class="row">
+						<div class="form-group col-md-6">
+							<input type="text" name="pfvt[name]" class="form-control input-lg form-control-o" placeholder="你的名字... *" required>
+						</div>
+						<div class="form-group col-md-6">
+							<input type="email" name="pfvt[email]" class="form-control input-lg form-control-o" placeholder="E-mail 地址... *" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<textarea name="pfvt[message]" class="form-control input-lg form-control-o vertical-resize-only" placeholder="邮件内容... " style="min-height: 200px;"></textarea>
+						</div>
+					</div>
+					<div class="row text-center">
+						<button type="submit" class="btn btn-lg btn-squared btn-white btn-o" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Please wait">发送邮件</button>
+					</div>
+				</form>
+				<!-- /FORM: Contact Us -->
+
+			</div>
+			<!-- /Contact Form Column -->
+
+		</div>
+		<!-- /Section Content -->
+
+	</div>
+</section>
+<!-- /SECTION: Contact -->
+
+</main>
+<!-- /MAIN CONTAINER -->
+
+<!-- SCRIPTS -->
+<script src="js/Plugins/index/jquery-2.2.0.min.js"></script>
+<script src="components/bootstrap/js/bootstrap.min.js"></script>
+<script src="components/owl-carousel/owl.carousel.min.js"></script>
+<script src="components/sweetalert/sweetalert.min.js"></script>
+<script src="js/Plugins/index/jquery.magnific-popup.min.js"></script>
+<script src="js/Plugins/index/jquery.stellar.min.js"></script>
+<script src="js/Plugins/index/jquery.appear.js"></script>
+<script src="js/Plugins/index/jquery.animateNumber.min.js"></script>
+<script src="js/Plugins/index/circle-progress.min.js"></script>
+<script src="js/Plugins/index/jquery.validate.min.js"></script>
+<script src="js/Plugins/index/masonry.pkgd.min.js"></script>
+<script src="js/Plugins/index/scrollreveal.js"></script>
+<script src="js/Plugins/index/general.js"></script>
+<!-- /SCRIPTS -->
+
+<!-- TODO: Remove this block, DEMO only -->
+<!-- STYLESWITCHER -->
+<div id="styleswitcher" class="styleswitcher">
+
+<!-- <a href="#" class="toggle-styleswitcher"><i class="icon fa fa-gear"></i></a> -->
+
+<div class="styleswitcher-body">
+
+	<ul class="colors-list">
+		<li><a class="btn-switch-style" href="#" style="background: #b1ade5;" title="DullLavender-Light" data-title="theme-dulllavender-light"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #9abec5;" title="Nepal-Light"        data-title="theme-nepal-light"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #79caaf;" title="Tradewind-Light"    data-title="theme-tradewind-light"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #f8a964;" title="TanHide-Light"      data-title="theme-tanhide-light"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #ee7767;" title="BurntSienna-Light"  data-title="theme-burntsienna-light"></a></li>
+	</ul>
+
+	<ul class="colors-list">
+		<li><a class="btn-switch-style" href="#" style="background: #a49fe1;" title="DullLavender"       data-title="theme-dulllavender"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #8fb7bf;" title="Nepal"              data-title="theme-nepal"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #6cc5a7;" title="Tradewind"          data-title="theme-tradewind"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #f7a053;" title="TanHide"            data-title="theme-tanhide"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #ec6957;" title="BurntSienna"        data-title="theme-burntsienna"></a></li>
+	</ul>
+
+	<ul class="colors-list">
+		<li><a class="btn-switch-style" href="#" style="background: #9791dd;" title="DullLavender-Dark"  data-title="theme-dulllavender-dark"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #84b0b9;" title="Nepal-Dark"         data-title="theme-nepal-dark"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #5fc09f;" title="Tradewind-Dark"     data-title="theme-tradewind-dark"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #f69742;" title="TanHide-Dark"       data-title="theme-tanhide-dark"></a></li>
+		<li><a class="btn-switch-style" href="#" style="background: #ea5b47;" title="BurntSienna-Dark"   data-title="theme-burntsienna-dark"></a></li>
+	</ul>
+
+</div>
+
+</div>
+
+</body>
+</html>
