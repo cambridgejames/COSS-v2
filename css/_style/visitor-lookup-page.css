@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+.public-horizontally-container {
+	position: relative;
+	left: 50%;
+	-webkit-transform: translate3d(-50%, 0, 0);
+	-moz-transform: translate3d(-50%, 0, 0);
+	-ms-transform: translate3d(-50%, 0, 0);
+	-o-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+}
+
+.public-header {
+	height: 38px;
+	width: 380px;
+	margin-top: 50px;
+}
+
+.public-header .header-logo {
+	margin: 0 auto;
+	width: 206px;
+	height: 38px;
+	background: url(../../imgs/logo.png) no-repeat;
+}
+
+.resout-list {
+	margin: 0.5rem;
+	padding: 20px;
+	position: relative;
+	background: #F8F8F8;
+	box-shadow:silver 1px 1px 15px 3px;
+	cursor: default;
+}
+
+.resout-list .ajax-data {
+	width: 100%;
+}
+
+.resout-list .ajax-data div {
+	width: 100%;
+	min-height: 40px;
+	background: #F8F8F8;
+	font-size: 16px;
+	line-height: 40px;
+	text-align: center;
+	margin: 4px 0;
+	padding: 0 20px;
+	border-bottom: 1px dashed #7A7A7A;
+}
+
+.resout-list .ajax-data div:last-child {
+	border: none;
+}
+
+.resout-list .no-data {
+	width: 100%;
+	height: 40px;
+	color: #7A7979;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.public-footer {
+	margin-top: 15px 0;
+}
+
+.footer-copyright{
+	margin-top: 5px;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -o-center;
+	text-align: center;
+	color: #58595b;
+	font-weight: 400;
+	font-size: 9pt;
+	font-family: "微软雅黑",SimHei,sans-serif;
+}

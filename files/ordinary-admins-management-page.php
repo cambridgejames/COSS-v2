@@ -123,7 +123,7 @@ function displayFinalInformation($title, $information, $number) {
 
 	// 输出“总分”组.首先判断是否存在“总分”分组，不相等则说明存在“总分”组
 	if (count($title[2]) != count($title[3])) {
-		echo "<table id=\"table-2\"><thead><tr>";	// 解析表格标题栏
+		echo "<table id=\"table-".(count($title[0]) - 1)."\"><thead><tr>";	// 解析表格标题栏
 		foreach (end($title[1]) as $title_item) { echo "<th>".$title_item."</th>"; }
 		echo "</tr></thead>";
 

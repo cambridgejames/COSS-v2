@@ -27,7 +27,7 @@
 <!-- /OpenGraph meta -->
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="assets/img/favicon.png">
+<!-- <link rel="shortcut icon" href="assets/img/favicon.png"> -->
 <!-- /Favicon -->
 
 <!-- Styles -->
@@ -41,32 +41,29 @@
 <link rel="stylesheet" href="css/Plugins/index/magnific-popup.css">
 <link rel="stylesheet" href="css/Plugins/index/theme.css" title="theme-default">
 <!-- /Styles -->
-
-<!-- TODO: select one of the presented -->
-<!-- Predefined Schemes -->
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-dulllavender-light.css" title="theme-dulllavender-light">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-dulllavender.css"       title="theme-dulllavender">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-dulllavender-dark.css"  title="theme-dulllavender-dark">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-nepal-light.css"        title="theme-nepal-light">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-nepal.css"              title="theme-nepal">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-nepal-dark.css"         title="theme-nepal-dark">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-tradewind-light.css"    title="theme-tradewind-light">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-tradewind.css"          title="theme-tradewind">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-tradewind-dark.css"     title="theme-tradewind-dark">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-tanhide-light.css"      title="theme-tanhide-light">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-tanhide.css"            title="theme-tanhide">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-tanhide-dark.css"       title="theme-tanhide-dark">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-burntsienna-light.css"  title="theme-burntsienna-light">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-burntsienna.css"        title="theme-burntsienna">
-<link rel="alternate stylesheet" href="css/Plugins/index/theme-burntsienna-dark.css"   title="theme-burntsienna-dark">
-<!-- /Predefined Schemes -->
+<style type="text/css">
+	#hide-scroll-bars {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    #hide-scroll-bars::-webkit-scrollbar {
+        display: none;
+    }
+</style>
 
 </head>
-<body>
+<body onselectstart="return false" id="hide-scroll-bars">
 
 <!-- PRELOADER -->
 <div id="preloader" class="preloader">
-<div class="loader">加载中...</div>
+<div class="loader">
+	加载中...<br>
+	卡住请访问：<br>
+	游客登录：<a href="visit.html">https://www.compscosys.cn/visit.html</a><br>
+	用户登录：<a href="login.html">https://www.compscosys.cn/login.html</a>
+</div>
 </div>
 <!-- /PRELOADER -->
 
@@ -126,7 +123,7 @@
 						 data-reveal-reset="1">
 
 						<div class="col-xs-6 text-right">
-							<a href="#features" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
+							<a href="visit.html" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
 						</div>
 						<div class="col-xs-6">
 							<a href="login.html" class="btn btn-lg btn-squared btn-base text-uppercase">用户登录</a>
@@ -187,7 +184,7 @@
 						 data-reveal-reset="1">
 
 						<div class="col-xs-6 text-right">
-							<a href="#features" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
+							<a href="visit.html" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
 						</div>
 						<div class="col-xs-6">
 							<a href="login.html" class="btn btn-lg btn-squared btn-base text-uppercase">用户登录</a>
@@ -247,7 +244,7 @@
 						 data-reveal-reset="1">
 
 						<div class="col-xs-6 text-right">
-							<a href="#features" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
+							<a href="visit.html" class="btn btn-lg btn-squared btn-white btn-o text-uppercase smooth-scroll">游客登录</a>
 						</div>
 						<div class="col-xs-6">
 							<a href="login.html" class="btn btn-lg btn-squared btn-base text-uppercase">用户登录</a>
@@ -287,7 +284,7 @@
 					<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at. -->
 					系统拥有简洁的操作界面，保证无论是竞赛管理员、评委还是游客都能够快速的学会使用，方便初次使用本系统的用户能够快速适应自动化评分系统。
 				</div>
-				<a href="#" class="btn btn-base">了解更多</a>
+				<a href="login.html" class="btn btn-base">了解更多</a>
 
 			</div>
 			<!-- /ICON BOX: Clean Design -->
@@ -303,7 +300,7 @@
 					<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at. -->
 					观众可以通过在手机端登录并查找到对应的竞赛ID来查看每一位选手的实时比分以及其它与竞赛相关的数据，代替了传统的主持人播报比分的方式，使分数查看更加高效。
 				</div>
-				<a href="#" class="btn btn-base">了解更多</a>
+				<a href="visit.html" class="btn btn-base">了解更多</a>
 
 			</div>
 			<!-- /ICON BOX: Mobile Friendly -->
@@ -318,7 +315,7 @@
 					<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at. -->
 					通过竞赛管理员账号，可以一键导出整个竞赛的所有评分结果，大大降低管理人员保存竞赛结果的难度。
 				</div>
-				<a href="#" class="btn btn-base">了解更多</a>
+				<a href="login.html" class="btn btn-base">了解更多</a>
 
 			</div>
 			<!-- /ICON BOX: Well Documented -->
@@ -825,40 +822,6 @@
 <script src="js/Plugins/index/scrollreveal.js"></script>
 <script src="js/Plugins/index/general.js"></script>
 <!-- /SCRIPTS -->
-
-<!-- TODO: Remove this block, DEMO only -->
-<!-- STYLESWITCHER -->
-<div id="styleswitcher" class="styleswitcher">
-
-<!-- <a href="#" class="toggle-styleswitcher"><i class="icon fa fa-gear"></i></a> -->
-
-<div class="styleswitcher-body">
-
-	<ul class="colors-list">
-		<li><a class="btn-switch-style" href="#" style="background: #b1ade5;" title="DullLavender-Light" data-title="theme-dulllavender-light"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #9abec5;" title="Nepal-Light"        data-title="theme-nepal-light"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #79caaf;" title="Tradewind-Light"    data-title="theme-tradewind-light"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #f8a964;" title="TanHide-Light"      data-title="theme-tanhide-light"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #ee7767;" title="BurntSienna-Light"  data-title="theme-burntsienna-light"></a></li>
-	</ul>
-
-	<ul class="colors-list">
-		<li><a class="btn-switch-style" href="#" style="background: #a49fe1;" title="DullLavender"       data-title="theme-dulllavender"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #8fb7bf;" title="Nepal"              data-title="theme-nepal"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #6cc5a7;" title="Tradewind"          data-title="theme-tradewind"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #f7a053;" title="TanHide"            data-title="theme-tanhide"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #ec6957;" title="BurntSienna"        data-title="theme-burntsienna"></a></li>
-	</ul>
-
-	<ul class="colors-list">
-		<li><a class="btn-switch-style" href="#" style="background: #9791dd;" title="DullLavender-Dark"  data-title="theme-dulllavender-dark"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #84b0b9;" title="Nepal-Dark"         data-title="theme-nepal-dark"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #5fc09f;" title="Tradewind-Dark"     data-title="theme-tradewind-dark"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #f69742;" title="TanHide-Dark"       data-title="theme-tanhide-dark"></a></li>
-		<li><a class="btn-switch-style" href="#" style="background: #ea5b47;" title="BurntSienna-Dark"   data-title="theme-burntsienna-dark"></a></li>
-	</ul>
-
-</div>
 
 </div>
 

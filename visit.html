@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>竞赛在线评分系统</title>
+	<link rel="icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" href="css/Plugins/visit/sm.css">
+	<link rel="stylesheet" type="text/css" href="css/_style/visitor-lookup-page.css">
+</head>
+<body>
+	<!-- <div class="public-header public-horizontally-container">
+		<div class="header-logo" onclick="window.location.href = 'index.html'"><a href="index.html"></a></div>
+	</div> -->
+	<div class="content-padded">
+		<!-- 带搜索按钮的搜索框 -->
+		<div class="searchbar row">
+			<div class="search-input col-80">
+				<label class="icon icon-search" for="search"></label>
+				<input type="search" id='search' placeholder='输入竞赛ID...'/>
+			</div>
+			<a class="button button-fill button-primary col-20" onclick="searchCompsByID()">搜索</a>
+		</div>
+		<!-- END带搜索按钮的搜索框 -->
+	</div>
+	<div class="resout-list" onselectstart="return false">
+		<div class="ajax-data" id="ajax-data-container"></div>
+		<div class="no-data">没有更多数据了</div>
+	</div>
+	<div class="public-footer" onselectstart="return false">
+		<div class="footer-copyright">版权所有&copy;&nbsp;Copyright&nbsp;2018&emsp;内容维护：彭剑桥</div>
+		<div class="footer-copyright public-horizontally-container">
+			<a class="footer-copyright" href="http://www.miitbeian.gov.cn" target='_blank'>冀ICP备18027949号</a>
+			<span>&nbsp;|&nbsp;</span>
+			<a class="footer-copyright" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=13092802000135" target='_blank'>冀公网安备13092802000135号</a>
+		</div>
+	</div>
+
+	<!-- SCRIPTS -->
+	<script src="js/ext/base64.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/ext/cookies.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/visitor-getSource-Ajax.js" charset="utf-8" type="text/javascript"></script>
+	<!-- /SCRIPTS -->
+
+</body>
+</html>

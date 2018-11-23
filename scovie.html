@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>竞赛在线评分系统</title>
+	<link rel="icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<link rel="shortcut icon" href="https://www.compscosys.cn/png/imgs/icon" type="image/x-icon">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/_style/scovie-score-preview.css">
+</head>
+<body onload="getAllInformations()" onselectstart="return false">
+	<div class="container">
+		<div class="function-tip">竞赛信息</div>
+		<div class="message-box">
+			<b>竞赛名称：</b> <span id="comps-name"></span><br>
+			<b>评委数量：</b> <span id="judge-numb"></span>
+		</div>
+	</div>
+	<div class="container">
+		<div class="function-tip">竞赛详细得分</div>
+		<div id="score-container" style="width: 100%; border: 1px solid #E3E3E3; padding: 0">
+			<div class="score-buttons"><ul id="groups"></ul></div>
+			<div id="scores"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="function-tip">主办方通知</div>
+		<div class="message-box">
+			1. 本页面不自动刷新，查看<span style="color: #f00">实时分数</span>请自行刷新页面！<br>
+			2. 请大家将手机调成震动或静音状态，保持良好会场秩序。<br>
+			3. <span style="color: #f00">横屏观看</span>效果更佳。
+		</div>
+	</div>
+	<div class="public-footer" onselectstart="return false">
+		<div class="footer-copyright">版权所有&copy;&nbsp;Copyright&nbsp;2018&emsp;内容维护：彭剑桥</div>
+		<div class="footer-copyright public-horizontally-container">
+			<a class="footer-copyright" href="http://www.miitbeian.gov.cn" target='_blank'>冀ICP备18027949号</a>
+			<span>&nbsp;|&nbsp;</span>
+			<a class="footer-copyright" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=13092802000135" target='_blank'>冀公网安备13092802000135号</a>
+		</div>
+	</div>
+
+	<!-- SCRIPTS -->
+	<script src="js/ext/base64.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/ext/cookies.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/visitor-get-score-to-view.js" charset="utf-8" type="text/javascript"></script>
+	<!-- /SCRIPTS -->
+</body>
+</html>
