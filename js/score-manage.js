@@ -31,7 +31,7 @@ function compsNameInquirer() {
 
 		xmlhttp.open("POST", "PHP/bin/comps-info-query.php", true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send("compsname=" + compsname);
+		xmlhttp.send("compsname=" + compsname + "&randomNow=" + Math.random());
 
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304)) {
@@ -157,7 +157,7 @@ function competitorInfoSubmit() {
 
 	xmlhttp.open("POST", "PHP/bin/competitor-info-submit.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + encodeURIComponent(compsname) + "&playername=" + encodeURIComponent(competitor[0]) + "&playergroup=" + encodeURIComponent(competitor[2]) + "&workname=" + encodeURIComponent(competitor[1]) + "&judgename=" + encodeURIComponent(Base.decode(GetCookieByName(Base.encode("username")))) + "&scoredetailed=" + encodeURIComponent(scoredetailed.slice(3)) + "&scoresum=" + encodeURIComponent(scoreSum) + "&current=" + encodeURIComponent(current));
+	xmlhttp.send("compsname=" + encodeURIComponent(compsname) + "&playername=" + encodeURIComponent(competitor[0]) + "&playergroup=" + encodeURIComponent(competitor[2]) + "&workname=" + encodeURIComponent(competitor[1]) + "&judgename=" + encodeURIComponent(Base.decode(GetCookieByName(Base.encode("username")))) + "&scoredetailed=" + encodeURIComponent(scoredetailed.slice(3)) + "&scoresum=" + encodeURIComponent(scoreSum) + "&current=" + encodeURIComponent(current) + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4) {

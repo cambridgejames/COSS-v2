@@ -35,7 +35,7 @@ function compsNameInquirer() {
 		}
 	};
 
-	xmlhttp.open("GET", "PHP/bin/compsname-inquirer.php", true);
+	xmlhttp.open("GET", "PHP/bin/compsname-inquirer.php?randomNow=" + Math.random(), true);
 	xmlhttp.send();
 }
 
@@ -51,7 +51,7 @@ function compslogin(compsname) {
 
 	xmlhttp.open("POST", "PHP/bin/get-if-comps-underway.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + compsname);
+	xmlhttp.send("compsname=" + compsname + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && xmlhttp.status === 200 && xmlhttp.responseText === "succeed") {

@@ -9,7 +9,7 @@ function searchCompsByID() {
 
 	xmlhttp.open("POST", "PHP/bin/visitor-get-comps-by-id.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("compsID=" + compsID);
+	xmlhttp.send("compsID=" + compsID + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304)) {
@@ -36,7 +36,7 @@ function getScores(compsname) {
 
 	xmlhttp.open("POST", "PHP/bin/get-if-comps-underway.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + compsname);
+	xmlhttp.send("compsname=" + compsname + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && xmlhttp.status === 200 && xmlhttp.responseText === "succeed") {

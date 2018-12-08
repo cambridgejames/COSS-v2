@@ -15,7 +15,7 @@ function getAllInformations() {
 
 	xmlhttp.open("POST", "PHP/bin/visitor-get-all-information.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + compsname);
+	xmlhttp.send("compsname=" + compsname + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304)) {

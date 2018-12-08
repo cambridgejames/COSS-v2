@@ -37,7 +37,7 @@ function postmessage() {
 		}
 	};
 
-	xmlhttp.open("GET", "PHP/bin/login-checkout.php?username="+username+"&password="+password, true);
+	xmlhttp.open("GET", "PHP/bin/login-checkout.php?username="+username+"&password="+password + "&randomNow=" + Math.random(), true);
 	xmlhttp.send();
 
 }

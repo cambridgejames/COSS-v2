@@ -11,7 +11,7 @@ function showWellcomPage() {
 
 	xmlhttp.open("POST", "PHP/bin/admins-compsname-inquirer.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send();
+	xmlhttp.send("randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304) && xmlhttp.responseText != "failed") {
@@ -43,7 +43,7 @@ function getPageByCompsname(compsname) {
 
 	xmlhttp.open("POST", "files/ordinary-admins-management-page.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + compsname);
+	xmlhttp.send("compsname=" + compsname + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304) && xmlhttp.responseText != "failed") {
@@ -109,7 +109,7 @@ function getStartTime() {
 
 	xmlhttp.open("POST", "PHP/bin/get-comps-start-time.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + compsname);
+	xmlhttp.send("compsname=" + compsname + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304) && xmlhttp.responseText != "failed") {
@@ -166,7 +166,7 @@ function makeCompStartOrEnd() {
 
 	xmlhttp.open("POST", "PHP/bin/set-comps-start-or-end.php", true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.send("compsname=" + document.getElementById("compsName").innerHTML + "&isstartsign=" + isstart);
+	xmlhttp.send("compsname=" + document.getElementById("compsName").innerHTML + "&isstartsign=" + isstart + "&randomNow=" + Math.random());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 304) && xmlhttp.responseText == "succeed") {
