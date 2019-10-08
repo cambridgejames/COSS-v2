@@ -80,7 +80,29 @@ var tableToExcel = (function() {
 // 另一个保存前端table的方法，据说能保存多个table到同一个Excel表中去
 
 function explorCurrentTable() {
-	tablesToExcel(['table-2', 'table-0', 'table-1'], ['总分', '班徽组', '班旗组'], "testExport.xls", "Excel");
+	var name = document.getElementById("compsName").innerHTML;
+	var content = document.getElementById("score-container").childNodes;
+	var group = document.getElementById("groups").childNodes;
+
+	var ids = [];
+	var names = [];
+	var current = 0;
+
+	for(var index = 0; index < content.length && current < group.length; index++) {
+		if(content[index].nodeName !== "TABLE") {
+			continue;
+		}
+		if(group[current].innerHTML === "总分") {
+			ids.unshift(content[index].id);
+			names.unshift(group[current].innerHTML);
+		} else {
+			ids.push(content[index].id);
+			names.push(group[current].innerHTML);
+		}
+		current++;
+	}
+	//tablesToExcel(['table-2', 'table-0', 'table-1'], ['总分', '班徽组', '班旗组'], name + ".xls", "Excel");
+	tablesToExcel(ids, names, name + ".xls", "Excel");
 }
 
 function tablesToExcel(tables, wsnames, wbname, appname){

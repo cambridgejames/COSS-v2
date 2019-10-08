@@ -2,6 +2,23 @@ var startDate = new Date();
 startDate.setDate(startDate.getDate() + 1);
 var timeLaster;
 
+/*window.onresize = function() {
+	changeSize();
+};*/
+
+function changeSize() {
+	var winHeight = 0;
+	if (window.innerHeight) {
+		winHeight = window.innerHeight;
+	}
+	else if ((document.body) && (document.body.clientHeight)) {
+		winHeight = document.body.clientHeight;
+	}
+
+	var content = document.getElementById("public-content");
+	content.style.height = winHeight - 62 + "px";
+}
+
 function showWellcomPage() {
 	'use strict';
 
@@ -25,6 +42,7 @@ function showWellcomPage() {
 				e.initEvent('click', false, false);
 				setTimeout(compslist[0].dispatchEvent(e),0);
 			}
+			changeSize();
 		}
 		else {
 			if (xmlhttp.readyState !== 4 && (xmlhttp.status !== 200 && xmlhttp.status !== 304) || xmlhttp.responseText == "failed") {

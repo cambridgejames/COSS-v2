@@ -1,7 +1,7 @@
 function searchCompsByID() {
 	document.getElementById("ajax-data-container").innerHTML = "";
 	var compsID = document.getElementById("search").value;
-	if (compsID.length < 4) { alert("输入的ID长度过短"); return; }
+	if (compsID.length < 1) { alert("输入的ID长度过短"); return; }
 
 	var xmlhttp = null;
 	if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); }
