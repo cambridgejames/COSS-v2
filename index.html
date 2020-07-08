@@ -51,10 +51,39 @@
     #hide-scroll-bars::-webkit-scrollbar {
         display: none;
     }
+
+	.cookie-tip {
+		width: 100%;
+		background-color: #FFF6B8;
+		border: 2px solid #FFD158;
+		padding: 16px;
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	.cookie-tip[class*="active"] {
+		opacity: 1;
+	}
+
+	.cookie-tip a {
+		display: inline-block;
+		cursor: pointer;
+		text-decoration: underline;
+	}
 </style>
 
 </head>
 <body onselectstart="return false" oncontextmenu=self.event.returnValue=false id="hide-scroll-bars">
+
+<div style="position: fixed; top: 0; z-index: 100; width: 100%; padding: 20px;" id="all-tips">
+	<div class="cookie-tip" id="cookie-tip">
+		<p><span>1. 本网站目前仅用于测试 SQL 注入攻击。若要使用本网站的功能，请关注本站的新版本： <a
+				href="https://coss4.powerinv.net.cn">竞赛在线评分系统</a>。 </span></p>
+		<p><span>2. 本网站使用 cookie，用于在您的电脑中储存信息。这些 cookie 可以使网站正常运行，以及帮助我们改进用户体验。使用本网站，即表示您接受放置这些 cookie。 </span></p>
+		<p style="margin-bottom: 0; height: 20px;"><a id="cookie-confirm" style="float: right;"
+				onclick="document.getElementById('hide-scroll-bars').removeChild(document.getElementById('all-tips'))">我已了解</a></p>
+	</div>
+</div>
 
 <!-- PRELOADER -->
 <div id="preloader" class="preloader">

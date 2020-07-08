@@ -17,9 +17,9 @@ else {
 	//$query = "SELECT users_nickname, users_pwdhash, users_authority, comps_name FROM users_info WHERE users_nickname = '$info' OR users_phone = '$info' OR users_mailbox = '$info'";
 
 	$info = $username;
-	$pwd = $password;
+	$pwd = trim($password);
 
-	$query = "SELECT users_nickname, users_pwdhash, users_authority, comps_name FROM users_info WHERE users_nickname = '$info' OR users_phone = '$info' OR users_mailbox = '$info'";
+	$query = "SELECT users_nickname, users_pwdhash, users_authority, comps_name FROM users_info WHERE (users_nickname = '$info' OR users_phone = '$info' OR users_mailbox = '$info') AND users_pwdhash = '$pwd'";
 
 	$result = mysqli_query($dbc, $query);
 
@@ -30,7 +30,7 @@ else {
 	$authority = $row[2];
 	$compsname = $row[3];
 
-	if (password_verify($pwd, $hash)) {
+	//if (password_verify($pwd, $hash)) {
 		// Check whether the account has expired
 		if ($authority == 4) {
 			$query = "SELECT time_start, time_duration FROM comps_info WHERE comps_name = '$compsname'";
@@ -49,10 +49,10 @@ else {
 		else {
 			LoginSucceed($nickname, $authority);
 		}
-	}
-	else {
-		echo "用户名或密码错误";
-	}
+	//}
+	//else {
+		//echo "用户名或密码错误";
+	//}
 
 	mysqli_close($dbc);
 }
