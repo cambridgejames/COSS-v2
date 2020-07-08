@@ -9,6 +9,7 @@ $compsID = $_POST["compsID"];
 $query = "SELECT comps_name FROM comps_info WHERE comps_id like '$compsID%'";
 //SELECT comps_name FROM comps_info WHERE comps_id = '$compsID'
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+mysqli_set_charset($dbc, "utf8");
 $result = mysqli_query($dbc, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {

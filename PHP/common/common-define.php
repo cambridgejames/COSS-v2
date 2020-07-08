@@ -2,7 +2,7 @@
 
 //error_reporting(E_ALL ^ E_NOTICE);
 
-define('DB_HOST', 'localhost');
+define('DB_HOST', '139.199.36.160');
 define('DB_USER', 'compsysuser');
 define('DB_PASS', 'MysqlCompsysuser123Cloud');
 define('DB_NAME', 'compsys_info');

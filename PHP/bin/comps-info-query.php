@@ -11,6 +11,7 @@ if ($username && $compsname) {
 	$query2 = "SELECT reviewed_number FROM users_info WHERE users_nickname = '$username'";
 
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	mysqli_set_charset($dbc, "utf8");
 	$result1 = mysqli_query($dbc, $query1);
 	$result2 = mysqli_query($dbc, $query2);
 	mysqli_close($dbc);

@@ -10,13 +10,19 @@ if (empty($username) || empty($password)) {
 }
 else {
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-					
-	$info = mysqli_real_escape_string($dbc, trim($username));
-	$pwd = mysqli_real_escape_string($dbc, trim($password));
+	mysqli_set_charset($dbc, "utf8");
+
+	// $info = mysqli_real_escape_string($dbc, trim($username));
+	// $pwd = mysqli_real_escape_string($dbc, trim($password));
+	//$query = "SELECT users_nickname, users_pwdhash, users_authority, comps_name FROM users_info WHERE users_nickname = '$info' OR users_phone = '$info' OR users_mailbox = '$info'";
+
+	$info = $username;
+	$pwd = $password;
 
 	$query = "SELECT users_nickname, users_pwdhash, users_authority, comps_name FROM users_info WHERE users_nickname = '$info' OR users_phone = '$info' OR users_mailbox = '$info'";
+
 	$result = mysqli_query($dbc, $query);
-	
+
 	mysqli_data_seek($result, 0);
 	$row = mysqli_fetch_array($result);
 	$nickname = $row[0];
