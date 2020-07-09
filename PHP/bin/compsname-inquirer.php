@@ -20,6 +20,7 @@ if ($username && $authority) {
 	}
 
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	mysqli_set_charset($dbc, "utf8");
 	$result = mysqli_query($dbc, $query);
 	mysqli_close($dbc);
 

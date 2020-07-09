@@ -86,8 +86,8 @@ function getCompsysScoreInfo($compsName, $DBC) {
 
 	/// 函数实现：
 	$query = "SELECT competitor_info, score_rubric FROM comps_info WHERE comps_name = '$compsName'";
+	mysqli_set_charset($DBC, "utf8");
 	$result = mysqli_query($DBC, $query);
-
 	checkIsLegal(mysqli_num_rows($result) > 0, $DBC, "getCompsysScoreInfo()");
 
 	mysqli_data_seek($result, 0);

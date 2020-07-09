@@ -7,6 +7,7 @@ checkIsLegal(isset($_POST["compsname"]), null, 1);
 $compsname = $_POST["compsname"];
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+mysqli_set_charset($dbc, "utf8");
 $result = mysqli_query($dbc, "SELECT isstart_sign FROM comps_info WHERE comps_name = '$compsname'");
 mysqli_close($dbc);
 
